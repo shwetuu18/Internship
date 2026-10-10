@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitLife | Legs Workout</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222; border-radius: 0;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 14px;
+            padding: 10px 18px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler {
+            border: none; outline: none; box-shadow: none !important;
+        }
+
+        /* ---------- HERO ---------- */
+        .legs-hero {
+            position: relative;
+            min-height: 100vh;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .hero-image {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1434682881908-b43d0467b798?auto=format&fit=crop&w=1600&q=80')
+                        center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.92) 40%, rgba(0,0,0,0.5));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 100px 0;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .legs-hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
+        }
+        .legs-hero h1 span { color: #ff5c00; display: block; }
+
+        .hero-description {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.85;
+            max-width: 480px;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .start-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            transition: 0.3s;
+        }
+        .start-btn:hover { background: transparent; color: #ff5c00; }
+
+        .outline-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #fff;
+            transition: 0.3s;
+        }
+        .outline-btn:hover { background: #fff; color: #111; }
+
+        /* Hero stats */
+        .hero-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 40px;
+            background: rgba(15,15,15,0.85);
+            border: 1px solid #262626;
+            backdrop-filter: blur(10px);
+        }
+        .stat-box {
+            padding: 15px 0;
+            border-bottom: 1px solid #262626;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .stat-box:last-child { border-bottom: 0; }
+        .stat-box strong {
+            font-size: 44px;
+            font-weight: 900;
+            color: #ff5c00;
+            line-height: 1;
+        }
+        .stat-box span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #999;
+            font-weight: 700;
+        }
+
+        .vertical-text {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            writing-mode: vertical-rl;
+            font-size: 12px;
+            letter-spacing: 6px;
+            font-weight: 700;
+            color: #444;
+            z-index: 2;
+        }
+
+        /* ---------- INTRO ---------- */
+        .leg-intro {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .orange-label {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .leg-intro h2 {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .leg-intro h2 em {
+            font-style: normal;
+            color: #ff5c00;
+        }
+        .intro-text {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        /* ---------- EXERCISES ---------- */
+        .exercise-section {
+            padding: 100px 0;
+            background: #f7f7f7;
+        }
+        .section-heading {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-heading > span {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .section-heading h2 {
+            font-size: 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+        .section-heading h2 strong { color: #ff5c00; display: block; }
+
+        .exercise-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 200px;
+            gap: 40px;
+            align-items: center;
+            background: #fff;
+            border-radius: 6px;
+            padding: 30px 35px;
+            margin-bottom: 18px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+        .exercise-row:hover {
+            border-left-color: #ff5c00;
+            transform: translateX(8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+        }
+        .exercise-row.highlighted {
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .exercise-row.highlighted .exercise-number { color: #ff5c00; }
+        .exercise-row.highlighted .exercise-info h3 { color: #fff; }
+        .exercise-row.highlighted .exercise-info p { color: #999; }
+        .exercise-row.highlighted .exercise-meta span { color: #ccc; }
+
+        .exercise-number {
+            font-size: 46px;
+            font-weight: 900;
+            color: #ddd;
+            line-height: 1;
+        }
+        .exercise-info h3 {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .exercise-info p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+        .exercise-meta {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .exercise-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .exercise-meta i { color: #ff5c00; }
+
+        .exercise-icon {
+            width: 200px;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .exercise-icon img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .exercise-row:hover .exercise-icon img { transform: scale(1.08); }
+
+        /* ---------- CHALLENGE ---------- */
+        .challenge-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .challenge-card {
+            background: #ff5c00;
+            color: #fff;
+            border-radius: 6px;
+            padding: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .challenge-card > div > span {
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0.85;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .challenge-card h2 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+        .challenge-card h2 strong {
+            color: #0a0a0a;
+            display: block;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .legs-hero h1 { font-size: 48px; }
+            .hero-stats { margin-top: 40px; padding: 30px; }
+            .vertical-text { display: none; }
+            .leg-intro h2 { font-size: 40px; }
+            .section-heading h2 { font-size: 32px; }
+            .exercise-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                text-align: center;
+            }
+            .exercise-number { text-align: center; }
+            .exercise-icon { width: 100%; height: 240px; margin: 0 auto; max-width: 400px; }
+            .exercise-meta { justify-content: center; }
+            .challenge-card { padding: 40px 30px; }
+            .challenge-card h2 { font-size: 32px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .legs-hero h1 { font-size: 34px; }
+            .leg-intro h2 { font-size: 30px; }
+            .exercise-info h3 { font-size: 18px; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =========================================================
+                           HERO
+========================================================= -->
+<section class="legs-hero">
+
+    <div class="hero-image"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+                <span class="hero-tag">LOWER BODY POWER</span>
+
+                <h1>
+                    BUILD
+                    <span>STRONGER</span>
+                    LEGS.
+                </h1>
+
+                <p class="hero-description">
+                    A powerful lower-body workout designed to
+                    strengthen your quads, hamstrings, glutes
+                    and calves.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#workout" class="start-btn">
+                        Start Workout
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="workout.html" class="outline-btn">All Workout.</a>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="hero-stats">
+
+                    <div class="stat-box">
+                        <strong>60</strong>
+                        <span>MINUTES</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <strong>650</strong>
+                        <span>CALORIES</span>
+                    </div>
+
+                    <div class="stat-box">
+                        <strong>06</strong>
+                        <span>EXERCISES</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="vertical-text">LEG DAY • NO EXCUSES</div>
+
+</section>
+
+
+<!-- =========================================================
+                           INTRO
+========================================================= -->
+<section class="leg-intro" id="workout">
+    <div class="container">
+        <div class="row align-items-end g-4">
+
+            <div class="col-lg-8">
+                <span class="orange-label">TODAY'S CHALLENGE</span>
+                <h2>LEG DAY<br><em>STARTS NOW.</em></h2>
+            </div>
+
+            <div class="col-lg-4">
+                <p class="intro-text">
+                    Train with control, focus on your form
+                    and challenge every major muscle group
+                    in your lower body.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+                         EXERCISES
+========================================================= -->
+<section class="exercise-section" id="exercises">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>01 — 06</span>
+            <h2>THE LEG <strong>BLUEPRINT</strong></h2>
+        </div>
+
+        <!-- EXERCISE 01 -->
+        <div class="exercise-row">
+            <div class="exercise-number">01</div>
+            <div class="exercise-info">
+                <h3>Barbell Squats</h3>
+                <p>The foundation of your leg workout. Focus on controlled movement and strong posture.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 4 Sets</span>
+                    <span><i class="fa-solid fa-bolt"></i> 10 Reps</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYvSYarYg4D3QxtNCX2Se_cXFH_jrBTVYQ_DVvZgr1Qg&s=10" alt="Barbell Squats">
+            </div>
+        </div>
+
+        <!-- EXERCISE 02 -->
+        <div class="exercise-row highlighted">
+            <div class="exercise-number">02</div>
+            <div class="exercise-info">
+                <h3>Leg Press</h3>
+                <p>Push through your heels and build strength across your lower body.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 4 Sets</span>
+                    <span><i class="fa-solid fa-bolt"></i> 12 Reps</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn5jrKcoqDudWI8Z-E0ViQY52XX_5jRXXf2qASQ5lLag&s=10" alt="Leg Press">
+            </div>
+        </div>
+
+        <!-- EXERCISE 03 -->
+        <div class="exercise-row">
+            <div class="exercise-number">03</div>
+            <div class="exercise-info">
+                <h3>Walking Lunges</h3>
+                <p>Improve balance, coordination and lower-body strength.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 3 Sets</span>
+                    <span><i class="fa-solid fa-person-walking"></i> 12 Each Leg</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZPOI1aHgTQZceg9GQu7bEVEGiEUz-8e5Rw3FBjlHZLg&s=10" alt="Walking Lunges">
+            </div>
+        </div>
+
+        <!-- EXERCISE 04 -->
+        <div class="exercise-row">
+            <div class="exercise-number">04</div>
+            <div class="exercise-info">
+                <h3>Leg Extension</h3>
+                <p>Isolate the quadriceps and finish every repetition with control.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 3 Sets</span>
+                    <span><i class="fa-solid fa-bolt"></i> 15 Reps</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ57DeVrVVhLwg2On8eAJ7zaIoQiZQUf-KNQ9sTNYjV3Q&s=10" alt="Leg Extension">
+            </div>
+        </div>
+
+        <!-- EXERCISE 05 -->
+        <div class="exercise-row highlighted">
+            <div class="exercise-number">05</div>
+            <div class="exercise-info">
+                <h3>Leg Curl</h3>
+                <p>Target your hamstrings and improve posterior-chain strength.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 3 Sets</span>
+                    <span><i class="fa-solid fa-bolt"></i> 12 Reps</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT18YKID0vBudDPJZtT8XYOeNQiVbjv3xGjtw3AXhMceA&s=10" alt="Leg Curl">
+            </div>
+        </div>
+
+        <!-- EXERCISE 06 -->
+        <div class="exercise-row">
+            <div class="exercise-number">06</div>
+            <div class="exercise-info">
+                <h3>Standing Calf Raise</h3>
+                <p>Finish strong by building strength and control in your calves.</p>
+                <div class="exercise-meta">
+                    <span><i class="fa-solid fa-repeat"></i> 4 Sets</span>
+                    <span><i class="fa-solid fa-bolt"></i> 15 Reps</span>
+                </div>
+            </div>
+            <div class="exercise-icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmJKN2uhoNx9Ay3etoZqe4I3k5KFkXb_12wSussnt8UQ&s=10" alt="Standing Calf Raise">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+                         CHALLENGE
+========================================================= -->
+<section class="challenge-section">
+    <div class="container">
+        <div class="challenge-card">
+            <div>
+                <span>LEG DAY CHALLENGE</span>
+                <h2>DON'T SKIP <strong>LEG DAY.</strong></h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonials</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+           
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

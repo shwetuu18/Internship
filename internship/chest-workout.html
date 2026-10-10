@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitLife | Chest Workout</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222; border-radius: 0;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 14px;
+            padding: 10px 18px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler {
+            border: none; outline: none; box-shadow: none !important;
+        }
+
+        /* ---------- SHARED ---------- */
+        .small-heading {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .section-heading {
+            max-width: 680px;
+            margin: 0 auto 60px;
+        }
+        .section-heading span {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .section-heading h2 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .section-heading h2 em {
+            font-style: normal;
+            color: #ff5c00;
+        }
+        .section-heading p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ---------- HERO ---------- */
+        .workout-hero {
+            padding: 100px 0;
+            background: linear-gradient(120deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .workout-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,92,0,0.15), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .workout-hero .container { position: relative; z-index: 2; }
+
+        .workout-hero h1 {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .workout-hero h1 em {
+            font-style: normal;
+            color: #ff5c00;
+            display: block;
+        }
+        .hero-text {
+            color: #bbb;
+            font-size: 16px;
+            line-height: 1.85;
+            max-width: 520px;
+            margin-bottom: 35px;
+        }
+
+        .btn-orange {
+            background: #ff5c00;
+            color: #fff;
+            border: 2px solid #ff5c00;
+            padding: 14px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-orange:hover { background: transparent; color: #ff5c00; }
+
+        .back-link {
+            color: #fff;
+            margin-left: 25px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ff5c00;
+            padding-bottom: 3px;
+        }
+        .back-link:hover { color: #ff5c00; }
+
+        .hero-image {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: perspective(1000px) rotateY(-6deg);
+            transition: 0.5s;
+        }
+        .hero-image:hover { transform: perspective(1000px) rotateY(0deg); }
+        .hero-image img { width: 100%; height: 480px; object-fit: cover; }
+        .image-tag {
+            position: absolute;
+            bottom: 20px; left: 20px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 10px 24px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        /* ---------- WORKOUT INFO ---------- */
+        .workout-info-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .info-card {
+            background: #f7f7f7;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 6px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+            height: 100%;
+        }
+        .info-card:hover {
+            background: #111;
+            color: #fff;
+            border-left-color: #ff5c00;
+            transform: translateY(-6px);
+        }
+        .info-card i {
+            font-size: 32px;
+            color: #ff5c00;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .info-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: #999;
+        }
+        .info-card:hover h4 { color: #ff5c00; }
+        .info-card p {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* ---------- OVERVIEW ---------- */
+        .overview-section {
+            padding: 100px 0;
+            background: #f7f7f7;
+        }
+        .overview-image {
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+        }
+        .overview-image img { width: 100%; height: 500px; object-fit: cover; }
+
+        .overview-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .overview-section h2 em {
+            font-style: normal;
+            color: #ff5c00;
+        }
+        .overview-section p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .check-list > div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .check-list i { color: #ff5c00; font-size: 20px; }
+
+        /* ---------- PLAN ---------- */
+        .plan-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .exercise-card {
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 35px;
+            align-items: center;
+            padding: 30px 35px;
+            background: #f7f7f7;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+        }
+        .exercise-card:hover {
+            border-left-color: #ff5c00;
+            background: #fff;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+            transform: translateX(8px);
+        }
+        .exercise-number {
+            font-size: 46px;
+            font-weight: 900;
+            color: #ddd;
+            line-height: 1;
+        }
+        .exercise-content h3 {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .exercise-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .exercise-stats {
+            display: flex;
+            gap: 25px;
+            text-align: center;
+        }
+        .exercise-stats span {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-flex;
+            flex-direction: column;
+        }
+        .exercise-stats strong {
+            color: #111;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 0;
+            text-transform: none;
+            margin-bottom: 3px;
+        }
+
+        /* ---------- TIPS ---------- */
+        .tips-section {
+            padding: 100px 0;
+            background: #f7f7f7;
+        }
+        .tips-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .tips-section h2 em {
+            font-style: normal;
+            color: #ff5c00;
+        }
+        .tips-intro {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 30px;
+        }
+
+        .tip {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 18px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .tip:last-child { border-bottom: 0; }
+        .tip span {
+            color: #ff5c00;
+            font-size: 22px;
+            font-weight: 900;
+            flex-shrink: 0;
+            width: 40px;
+        }
+        .tip p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+            padding-top: 3px;
+        }
+
+        .quote-box {
+            background: #111;
+            color: #fff;
+            padding: 60px 50px;
+            border-radius: 6px;
+            position: relative;
+        }
+        .quote-box i {
+            color: #ff5c00;
+            font-size: 40px;
+            margin-bottom: 25px;
+            display: block;
+        }
+        .quote-box h3 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 20px;
+        }
+        .quote-box h3 em {
+            font-style: normal;
+            color: #ff5c00;
+        }
+        .quote-box p {
+            color: #999;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* ---------- CTA ---------- */
+        .cta-section {
+            padding: 130px 0;
+            background:
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+        }
+        .cta-section span {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .cta-section h2 {
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .cta-section h2 em {
+            font-style: normal;
+            color: #ff5c00;
+            display: block;
+        }
+        .cta-section p {
+            color: #ccc;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .workout-hero h1 { font-size: 40px; }
+            .hero-image { transform: none; margin-top: 40px; }
+            .hero-image img { height: 340px; }
+            .overview-image img { height: 340px; }
+            .exercise-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 25px;
+                text-align: center;
+            }
+            .exercise-stats { justify-content: center; }
+            .section-heading h2 { font-size: 30px; }
+            .overview-section h2 { font-size: 28px; }
+            .tips-section h2 { font-size: 28px; }
+            .cta-section h2 { font-size: 32px; }
+            .quote-box { padding: 40px 30px; }
+            .quote-box h3 { font-size: 20px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+            .back-link { display: block; margin: 20px 0 0; }
+        }
+        @media (max-width: 575px) {
+            .workout-hero { padding: 60px 0; }
+            .workout-hero h1 { font-size: 30px; }
+            .exercise-number { font-size: 32px; }
+            .exercise-content h3 { font-size: 18px; }
+            .exercise-stats { gap: 15px; }
+            .exercise-stats strong { font-size: 17px; }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+                         NAVBAR
+========================================================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+           <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =========================================================
+                     HERO SECTION
+========================================================= -->
+<section class="workout-hero">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+                <span class="small-heading">WORKOUT PROGRAM</span>
+
+                <h1>
+                    Chest
+                    <em>Workout</em>
+                </h1>
+
+                <p class="hero-text">
+                    Build chest strength and improve your
+                    upper-body performance with this
+                    professionally structured workout.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#workout-plan" class="btn btn-orange">View Workout Plan</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSotm-2JK42nx_fRjMMwDhPIsyH8MK7UmWcjDRSSwnaig&s=10" alt="Chest Workout">
+                    <div class="image-tag">CHEST</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+                  WORKOUT INFORMATION
+========================================================= -->
+<section class="workout-info-section">
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span>WORKOUT DETAILS</span>
+            <h2>Know Your <em>Workout</em></h2>
+            <p>Everything you need to know before starting your chest workout.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-card">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    <h4>Difficulty</h4>
+                    <p>Intermediate</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-card">
+                    <i class="bi bi-clock-fill"></i>
+                    <h4>Duration</h4>
+                    <p>45 Minutes</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-card">
+                    <i class="bi bi-bullseye"></i>
+                    <h4>Target</h4>
+                    <p>Chest & Triceps</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-card">
+                    <i class="bi bi-fire"></i>
+                    <h4>Calories</h4>
+                    <p>350–450 kcal</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+                    OVERVIEW
+========================================================= -->
+<section class="overview-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+                <div class="overview-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjYprcvXgnFxnpzLZus--sO-R-J9nJYI-gtuwAtw6vBG4HS4ikJu5zJPjx&s=10" alt="Chest Training">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <span class="small-heading">WORKOUT OVERVIEW</span>
+
+                <h2>Build a Stronger <em>Chest</em></h2>
+
+                <p>
+                    This chest workout is designed to help
+                    improve upper-body strength while training
+                    different areas of the chest.
+                </p>
+
+                <p>
+                    The workout combines pressing and
+                    isolation exercises to create a balanced
+                    training session.
+                </p>
+
+                <div class="check-list">
+                    <div><i class="bi bi-check-circle-fill"></i> Upper Chest Activation</div>
+                    <div><i class="bi bi-check-circle-fill"></i> Chest Strength Development</div>
+                    <div><i class="bi bi-check-circle-fill"></i> Better Upper-Body Performance</div>
+                    <div><i class="bi bi-check-circle-fill"></i> Balanced Chest Training</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+                    WORKOUT PLAN
+========================================================= -->
+<section class="plan-section" id="workout-plan">
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span>TRAINING PLAN</span>
+            <h2>Chest Workout <em>Plan</em></h2>
+            <p>Follow the exercises in order for a structured workout session.</p>
+        </div>
+
+        <!-- EXERCISE 1 -->
+        <div class="exercise-card">
+            <div class="exercise-number">01</div>
+            <div class="exercise-content">
+                <h3>Bench Press</h3>
+                <p>A compound chest exercise focused on building overall upper-body pressing strength.</p>
+            </div>
+            <div class="exercise-stats">
+                <span><strong>4</strong>Sets</span>
+                <span><strong>10</strong>Reps</span>
+                <span><strong>90 sec</strong>Rest</span>
+            </div>
+        </div>
+
+        <!-- EXERCISE 2 -->
+        <div class="exercise-card">
+            <div class="exercise-number">02</div>
+            <div class="exercise-content">
+                <h3>Incline Bench Press</h3>
+                <p>Focuses on the upper chest while also engaging the shoulders and triceps.</p>
+            </div>
+            <div class="exercise-stats">
+                <span><strong>3</strong>Sets</span>
+                <span><strong>12</strong>Reps</span>
+                <span><strong>75 sec</strong>Rest</span>
+            </div>
+        </div>
+
+        <!-- EXERCISE 3 -->
+        <div class="exercise-card">
+            <div class="exercise-number">03</div>
+            <div class="exercise-content">
+                <h3>Dumbbell Fly</h3>
+                <p>An isolation movement that helps train the chest through a controlled range of motion.</p>
+            </div>
+            <div class="exercise-stats">
+                <span><strong>3</strong>Sets</span>
+                <span><strong>12</strong>Reps</span>
+                <span><strong>60 sec</strong>Rest</span>
+            </div>
+        </div>
+
+        <!-- EXERCISE 4 -->
+        <div class="exercise-card">
+            <div class="exercise-number">04</div>
+            <div class="exercise-content">
+                <h3>Push-ups</h3>
+                <p>A bodyweight movement that trains the chest, shoulders and triceps.</p>
+            </div>
+            <div class="exercise-stats">
+                <span><strong>3</strong>Sets</span>
+                <span><strong>15</strong>Reps</span>
+                <span><strong>60 sec</strong>Rest</span>
+            </div>
+        </div>
+
+        <!-- EXERCISE 5 -->
+        <div class="exercise-card">
+            <div class="exercise-number">05</div>
+            <div class="exercise-content">
+                <h3>Cable Crossover</h3>
+                <p>A controlled finishing exercise designed to provide focused chest training.</p>
+            </div>
+            <div class="exercise-stats">
+                <span><strong>3</strong>Sets</span>
+                <span><strong>12</strong>Reps</span>
+                <span><strong>60 sec</strong>Rest</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+                       WORKOUT TIPS
+========================================================= -->
+<section class="tips-section">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+                <span class="small-heading">TRAIN SMART</span>
+
+                <h2>Chest Workout <em>Tips</em></h2>
+
+                <p class="tips-intro">
+                    Focus on controlled movement and proper technique throughout the workout.
+                </p>
+
+                <div class="tip"><span>01</span><p>Warm up properly before starting your workout.</p></div>
+                <div class="tip"><span>02</span><p>Use a controlled movement instead of rushing through repetitions.</p></div>
+                <div class="tip"><span>03</span><p>Maintain proper form during every exercise.</p></div>
+                <div class="tip"><span>04</span><p>Take adequate rest between sets.</p></div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="quote-box">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <h3>
+                        Train with purpose.
+                        Move with control.
+                        <em>Progress consistently.</em>
+                    </h3>
+                    <p>Your progress is built one workout at a time.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================================================
+                       CTA
+========================================================= -->
+<section class="cta-section">
+    <div class="container text-center">
+
+        <span>READY TO TRAIN?</span>
+
+        <h2>Start Your Chest <em>Workout</em></h2>
+
+        <p>Stay consistent and make every workout count.</p>
+
+        <a href="workout.html" class="btn btn-orange">Explore More Workouts</a>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+                         FOOTER
+========================================================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonials</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+            
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

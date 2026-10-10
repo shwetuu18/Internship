@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>10 Beginner Workout Tips | FitLife</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS  (self-contained)
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- HERO ---------- */
+        .blog-hero {
+            position: relative;
+            padding: 130px 0 100px;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.92) 30%, rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+        }
+        .blog-hero .hero-content {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,92,0,0.15);
+            border: 1px solid #ff5c00;
+            color: #ff5c00;
+            padding: 8px 22px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .blog-hero h1 {
+            font-size: 58px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #ccc;
+            max-width: 620px;
+            margin: 0 auto 35px;
+        }
+
+        .hero-info {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+        .hero-info span {
+            color: #ccc;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-info i { color: #ff5c00; }
+
+        /* ---------- SECTIONS ---------- */
+        .intro-section,
+        .comparison-section,
+        .tips-section,
+        .checklist-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .comparison-section,
+        .tips-section {
+            background: #f7f7f7;
+        }
+
+        .small-title {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .intro-section h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .intro-section h2 span { color: #ff5c00; }
+
+        .intro-section p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .quote-box {
+            background: #fff4ec;
+            border-left: 4px solid #ff5c00;
+            padding: 25px 30px;
+            border-radius: 4px;
+            margin-top: 30px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .quote-box i {
+            color: #ff5c00;
+            font-size: 32px;
+            line-height: 1;
+        }
+        .quote-box strong {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* ---------- FITNESS PILLARS CARD ---------- */
+        .fitness-pillar-card {
+            background: #fff;
+            padding: 40px 35px;
+            border-radius: 6px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border-top: 4px solid #ff5c00;
+        }
+        .fitness-pillar-card h3 {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        .pillar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pillar:last-of-type { border-bottom: 0; }
+        .pillar-icon {
+            width: 50px; height: 50px;
+            background: #fff4ec;
+            color: #ff5c00;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .pillar strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+        .pillar small {
+            color: #999;
+            font-size: 12px;
+        }
+        .formula {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px solid #ff5c00;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .formula span {
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #111;
+        }
+        .formula b {
+            color: #ff5c00;
+            font-size: 18px;
+            font-weight: 900;
+        }
+
+        /* ---------- SECTION HEADING ---------- */
+        .section-heading {
+            max-width: 720px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .section-heading span {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .section-heading h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .section-heading h2 strong { color: #ff5c00; }
+        .section-heading p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ---------- COMPARE CARDS ---------- */
+        .compare-card {
+            background: #fff;
+            padding: 40px 35px;
+            border-radius: 6px;
+            height: 100%;
+            border-top: 4px solid;
+        }
+        .compare-card.positive { border-top-color: #22c55e; }
+        .compare-card.warning  { border-top-color: #ff5c00; }
+
+        .compare-icon {
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .compare-card.positive .compare-icon {
+            background: #dcfce7; color: #16a34a;
+        }
+        .compare-card.warning .compare-icon {
+            background: #fff4ec; color: #ff5c00;
+        }
+        .compare-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .compare-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .compare-card ul li {
+            padding: 12px 0;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .compare-card ul li:last-child { border-bottom: 0; }
+        .compare-card ul li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 10px;
+        }
+        .compare-card.positive ul li::before { background: #22c55e; }
+        .compare-card.warning ul li::before { background: #ff5c00; }
+
+        /* ---------- WORKOUT SECTION ---------- */
+        .workout-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .workout-section .section-heading { color: #fff; }
+        .workout-section .section-heading h2 { color: #fff; }
+        .workout-section .section-heading h2 strong { color: #ff5c00; }
+        .workout-section .section-heading p { color: #999; }
+
+        .workout-timer {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 30px;
+            background: #151515;
+            border: 1px solid #262626;
+            border-radius: 6px;
+            margin-bottom: 60px;
+        }
+        .workout-timer > div {
+            text-align: center;
+        }
+        .workout-timer small {
+            display: block;
+            color: #999;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .workout-timer strong {
+            font-size: 26px;
+            font-weight: 900;
+            color: #ff5c00;
+        }
+
+        .exercise-card {
+            background: #151515;
+            border: 1px solid #262626;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 100%;
+            transition: 0.4s;
+        }
+        .exercise-card:hover {
+            border-color: #ff5c00;
+            transform: translateY(-8px);
+        }
+        .exercise-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .exercise-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .exercise-card:hover .exercise-image img { transform: scale(1.08); }
+
+        .exercise-number {
+            position: absolute;
+            top: 15px; left: 15px;
+            background: #ff5c00;
+            color: #fff;
+            width: 42px; height: 42px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 16px; font-weight: 900;
+            border-radius: 50%;
+        }
+        .exercise-time {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 30px;
+        }
+
+        .exercise-content {
+            padding: 25px 25px 30px;
+        }
+        .exercise-content h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .focus {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .exercise-content p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .exercise-info {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #262626;
+            font-size: 12px;
+            color: #999;
+        }
+        .exercise-info i { color: #ff5c00; margin-right: 6px; }
+
+        .safety-note {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: #151515;
+            border-left: 4px solid #ff5c00;
+            padding: 30px;
+            border-radius: 6px;
+            margin-top: 50px;
+        }
+        .safety-note i {
+            color: #ff5c00;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        .safety-note strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .safety-note p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ---------- TIPS ---------- */
+        .tip-card {
+            display: flex;
+            gap: 25px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 6px;
+            height: 100%;
+            transition: 0.4s;
+            border-left: 4px solid transparent;
+        }
+        .tip-card:hover {
+            border-left-color: #ff5c00;
+            transform: translateX(8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .tip-card > span {
+            font-size: 42px;
+            font-weight: 900;
+            color: #f0f0f0;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .tip-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .tip-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ---------- CHECKLIST ---------- */
+        .checklist-box {
+            background: #fff4ec;
+            border-left: 4px solid #ff5c00;
+            padding: 60px;
+            border-radius: 6px;
+        }
+        .checklist-box h2 {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .checklist-box h2 span { color: #ff5c00; }
+        .checklist-box p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            font-size: 15px;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,92,0,0.15);
+        }
+        .check-item:last-child { border-bottom: 0; }
+        .check-item i {
+            color: #ff5c00;
+            font-size: 20px;
+        }
+
+        /* ---------- FINAL CTA ---------- */
+        .final-section {
+            position: relative;
+            padding: 120px 0;
+            background:
+                linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+        }
+        .final-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        .final-content span {
+            display: block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        .final-content h2 {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .final-content h2 strong { color: #ff5c00; }
+        .final-content p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            transition: 0.3s;
+        }
+        .back-button:hover {
+            background: transparent;
+            color: #ff5c00;
+        }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .blog-hero h1 { font-size: 38px; }
+            .intro-section h2,
+            .section-heading h2,
+            .checklist-box h2 { font-size: 28px; }
+            .final-content h2 { font-size: 28px; }
+            .workout-timer { gap: 30px; padding: 25px; }
+            .checklist-box { padding: 35px 25px; }
+            .blog-hero { padding: 80px 0 60px; }
+        }
+        @media (max-width: 575px) {
+            .blog-hero h1 { font-size: 28px; }
+            .hero-info { gap: 15px; }
+            .hero-info span { font-size: 12px; }
+            .tip-card { padding: 22px; gap: 15px; }
+            .tip-card > span { font-size: 32px; }
+            .workout-timer > div { flex: 1 1 40%; }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="blog-hero">
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            <i class="bi bi-lightning-charge-fill"></i>
+            BEGINNER FITNESS GUIDE
+        </span>
+
+        <h1>10 Beginner Workout Tips</h1>
+
+        <p class="hero-text">
+            Your practical guide to starting workouts,
+            building consistency and creating better fitness habits.
+        </p>
+
+        <div class="hero-info">
+            <span><i class="bi bi-calendar3"></i> July 2026</span>
+            <span><i class="bi bi-clock"></i> 7 Min Read</span>
+            <span><i class="bi bi-person"></i> Beginner Friendly</span>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     QUICK INTRO
+===================================================== -->
+<section class="intro-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <span class="small-title">BEFORE YOU START</span>
+
+                <h2>Why Exercise Alone Is <span>Not Enough</span></h2>
+
+                <p>
+                    Exercise is an important part of a healthy lifestyle,
+                    but it is only one piece of the bigger picture.
+                    You can spend time working out every day, but your
+                    overall progress also depends on nutrition, hydration,
+                    sleep, recovery and consistency.
+                </p>
+
+                <p>
+                    Think of your fitness journey like building a house.
+                    Exercise is one of the main pillars, but good nutrition
+                    provides the energy and nutrients your body needs,
+                    while rest gives your body time to recover and adapt.
+                    If one part is ignored, it becomes harder to maintain
+                    a balanced routine.
+                </p>
+
+                <p>
+                    For beginners, this does not mean following a
+                    complicated diet or spending hours in the gym.
+                    The goal is to create simple habits that you can
+                    actually follow.
+                </p>
+
+                <div class="quote-box">
+                    <i class="bi bi-quote"></i>
+                    <strong>
+                        Fitness is not one workout.
+                        It's what you do consistently between workouts too.
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5">
+                <div class="fitness-pillar-card">
+
+                    <h3>Your Fitness Formula</h3>
+
+                    <div class="pillar">
+                        <div class="pillar-icon"><i class="bi bi-activity"></i></div>
+                        <div>
+                            <strong>Exercise</strong>
+                            <small>Build strength & fitness</small>
+                        </div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon"><i class="bi bi-egg-fried"></i></div>
+                        <div>
+                            <strong>Nutrition</strong>
+                            <small>Fuel your body</small>
+                        </div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon"><i class="bi bi-droplet-fill"></i></div>
+                        <div>
+                            <strong>Hydration</strong>
+                            <small>Support daily performance</small>
+                        </div>
+                    </div>
+
+                    <div class="pillar">
+                        <div class="pillar-icon"><i class="bi bi-moon-stars-fill"></i></div>
+                        <div>
+                            <strong>Recovery</strong>
+                            <small>Give your body time to recover</small>
+                        </div>
+                    </div>
+
+                    <div class="formula">
+                        <span>EXERCISE</span>
+                        <b>+</b>
+                        <span>NUTRITION</span>
+                        <b>+</b>
+                        <span>RECOVERY</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     WHAT EXERCISE CAN / CANNOT DO
+===================================================== -->
+<section class="comparison-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>KNOW THE DIFFERENCE</span>
+            <h2>What Exercise Can Do —<br><strong>And What It Can't Do Alone</strong></h2>
+            <p>Understanding this makes your fitness journey much easier.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="compare-card positive">
+                    <div class="compare-icon"><i class="bi bi-check-lg"></i></div>
+                    <h3>Exercise Can Help You</h3>
+                    <ul>
+                        <li>Improve strength and endurance</li>
+                        <li>Support cardiovascular fitness</li>
+                        <li>Improve mobility and coordination</li>
+                        <li>Build a consistent active lifestyle</li>
+                        <li>Support overall physical wellbeing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="compare-card warning">
+                    <div class="compare-icon"><i class="bi bi-info-lg"></i></div>
+                    <h3>Exercise Cannot Do It Alone</h3>
+                    <ul>
+                        <li>Replace a balanced diet</li>
+                        <li>Replace proper hydration</li>
+                        <li>Replace adequate recovery</li>
+                        <li>Create sustainable habits without consistency</li>
+                        <li>Make every fitness goal happen overnight</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     BEGINNER WORKOUT
+===================================================== -->
+<section class="workout-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>TRY THIS TODAY</span>
+            <h2>Your <strong>20-Minute Beginner Workout</strong></h2>
+            <p>No complicated routine. Just simple movements you can learn and practice at your own pace.</p>
+        </div>
+
+        <div class="workout-timer">
+            <div><small>TOTAL TIME</small><strong>20 MIN</strong></div>
+            <div><small>LEVEL</small><strong>BEGINNER</strong></div>
+            <div><small>WORKOUTS</small><strong>6</strong></div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- WORKOUT 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNsWSnERAAY_lV4DV1IaTbvDnrTQ1FxzWySUzvDxisag&s=10" alt="March in Place Exercise">
+                        <span class="exercise-number">01</span>
+                        <span class="exercise-time">3 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>March in Place</h3>
+                        <span class="focus">WARM-UP</span>
+                        <p>March comfortably while moving your arms. Keep your posture upright and gradually increase your pace.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-clock"></i> 3 minutes</span>
+                            <span>Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORKOUT 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTej3AIuSB_mMOb7zo2Ug-oajoyy2hw3fX9GR8sSAT2HA&s=10" alt="Bodyweight Squat">
+                        <span class="exercise-number">02</span>
+                        <span class="exercise-time">3 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>Bodyweight Squats</h3>
+                        <span class="focus">LEGS</span>
+                        <p>Keep your feet comfortable, lower your body with control and stand back up while keeping your chest lifted.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-repeat"></i> 10–12 reps</span>
+                            <span>Beginner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORKOUT 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ619yl2pb5LtIQwTuNCRZ13RLetFORAjfmbcsy23-4SA&s=10" alt="Wall Push Up">
+                        <span class="exercise-number">03</span>
+                        <span class="exercise-time">3 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>Wall Push-Ups</h3>
+                        <span class="focus">UPPER BODY</span>
+                        <p>Place your hands on a stable wall and perform controlled push-ups. Keep your body aligned throughout the movement.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-repeat"></i> 8–10 reps</span>
+                            <span>Beginner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORKOUT 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI2HzaKfaEg6ii0VjtYSzWdyW9ciM3E1Dm74pPCAQs-A&s=10" alt="Glute Bridge Exercise">
+                        <span class="exercise-number">04</span>
+                        <span class="exercise-time">3 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>Glute Bridge</h3>
+                        <span class="focus">LOWER BODY</span>
+                        <p>Lie comfortably on your back with knees bent. Lift your hips in a controlled movement and slowly lower them again.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-repeat"></i> 10–12 reps</span>
+                            <span>Beginner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORKOUT 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJVroCYJltHBbwv8dd0ImZNnClbXaL330QPfm6C5hkA&s=10" alt="Cardio Step Touch">
+                        <span class="exercise-number">05</span>
+                        <span class="exercise-time">3 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>Step Touch</h3>
+                        <span class="focus">CARDIO</span>
+                        <p>Step from side to side at a comfortable pace. Keep your movements controlled and use your arms naturally.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-clock"></i> 3 minutes</span>
+                            <span>Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WORKOUT 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="exercise-card">
+                    <div class="exercise-image">
+                        <img src="https://img.redbull.com/images/q_auto,f_auto/redbullcom/2019/05/20/b236d0f4-e683-4462-9660-ab361c8d696f/cobra-pose-cool-down-stretch" alt="Cool Down Stretch">
+                        <span class="exercise-number">06</span>
+                        <span class="exercise-time">5 MIN</span>
+                    </div>
+                    <div class="exercise-content">
+                        <h3>Cool Down</h3>
+                        <span class="focus">RECOVERY</span>
+                        <p>Slow your movement gradually and finish with comfortable stretches. Focus on relaxed breathing.</p>
+                        <div class="exercise-info">
+                            <span><i class="bi bi-clock"></i> 5 minutes</span>
+                            <span>Relax</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="safety-note">
+            <i class="bi bi-shield-check"></i>
+            <div>
+                <strong>Beginner Safety Reminder</strong>
+                <p>
+                    Focus on comfortable movement and good technique.
+                    If an exercise causes pain or feels unsafe, stop
+                    and seek guidance from a qualified professional.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     10 TIPS
+===================================================== -->
+<section class="tips-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>BUILD BETTER HABITS</span>
+            <h2>10 Tips That Make <strong>Beginners Better</strong></h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>01</span>
+                    <div>
+                        <h3>Start Small</h3>
+                        <p>Begin with manageable workouts instead of trying to do everything on your first day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>02</span>
+                    <div>
+                        <h3>Warm Up First</h3>
+                        <p>Prepare your body with a few minutes of easy movement before your main workout.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>03</span>
+                    <div>
+                        <h3>Learn Your Form</h3>
+                        <p>Good technique matters more than rushing through repetitions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>04</span>
+                    <div>
+                        <h3>Be Consistent</h3>
+                        <p>A realistic routine you can repeat is better than an extreme routine you quickly abandon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>05</span>
+                    <div>
+                        <h3>Hydrate</h3>
+                        <p>Keep water as part of your daily routine and pay attention to your body's needs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>06</span>
+                    <div>
+                        <h3>Eat Balanced Meals</h3>
+                        <p>Include a variety of nutritious foods to support energy and recovery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>07</span>
+                    <div>
+                        <h3>Respect Recovery</h3>
+                        <p>Rest is not wasted time. It is part of maintaining a sustainable fitness routine.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>08</span>
+                    <div>
+                        <h3>Set Realistic Goals</h3>
+                        <p>Track small improvements rather than expecting dramatic changes immediately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>09</span>
+                    <div>
+                        <h3>Listen to Your Body</h3>
+                        <p>Pay attention to discomfort and stop if something feels painful or unsafe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tip-card">
+                    <span>10</span>
+                    <div>
+                        <h3>Enjoy Your Workout</h3>
+                        <p>Choose activities you enjoy so staying active feels like a lifestyle, not a punishment.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+     QUICK CHECKLIST
+===================================================== -->
+<section class="checklist-section">
+    <div class="container">
+
+        <div class="checklist-box">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+                    <span class="small-title">BEFORE YOUR NEXT WORKOUT</span>
+                    <h2>Your Beginner <span>Checklist</span></h2>
+                    <p>Save this list and quickly check it before starting your workout.</p>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>I have warmed up</span>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>I have water nearby</span>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>I know today's exercises</span>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>I will focus on technique</span>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>I will give my body time to recover</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+<section class="final-section">
+    <div class="container">
+
+        <div class="final-content">
+            <span>REMEMBER</span>
+
+            <h2>
+                You Don't Need To Be Perfect.
+                <br>
+                <strong>You Just Need To Start.</strong>
+            </h2>
+
+            <p>Build one healthy habit at a time. Your future self will thank you for it.</p>
+
+            <a href="blog.html" class="back-button">
+                <i class="bi bi-arrow-left"></i>
+                Back To Blog
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= BACK TO TOP ================= -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

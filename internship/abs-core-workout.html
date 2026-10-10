@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitLife | Abs & Core Workout</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS  (self-contained for abs-core-workout.html)
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222; border-radius: 0;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 14px;
+            padding: 10px 18px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler {
+            border: none; outline: none; box-shadow: none !important;
+        }
+
+        /* ---------- HERO ---------- */
+        .core-hero {
+            position: relative;
+            min-height: 100vh;
+            color: #fff;
+            overflow: hidden;
+        }
+        .core-hero-image {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80')
+                        center/cover no-repeat;
+        }
+        .core-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.9) 40%, rgba(0,0,0,0.4));
+        }
+        .core-hero .container {
+            position: relative;
+            z-index: 2;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,92,0,0.15);
+            border: 1px solid #ff5c00;
+            color: #ff5c00;
+            padding: 8px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+        }
+
+        .core-hero h1 {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .core-hero h1 span { color: #ff5c00; display: block; }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #ddd;
+            max-width: 520px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .core-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            transition: 0.3s;
+        }
+        .core-btn:hover { background: transparent; color: #ff5c00; }
+
+        .hero-link {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ff5c00;
+            padding-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .hero-link:hover { color: #ff5c00; }
+
+        /* Hero card */
+        .hero-workout-card {
+            background: rgba(15,15,15,0.92);
+            border: 1px solid #262626;
+            padding: 40px 35px;
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .card-top i { color: #ff5c00; font-size: 16px; }
+
+        .hero-workout-card h3 {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .hero-workout-card h3 strong { color: #ff5c00; display: block; }
+
+        .hero-card-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #262626;
+        }
+        .hero-card-stats > div {
+            text-align: center;
+        }
+        .hero-card-stats strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+        .hero-card-stats span {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #999;
+            margin-top: 6px;
+            display: block;
+        }
+
+        .progress-line {
+            height: 4px;
+            background: #262626;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .progress-line span {
+            display: block;
+            width: 60%;
+            height: 100%;
+            background: #ff5c00;
+        }
+
+        .hero-workout-card small {
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .scroll-text {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 2;
+        }
+        .scroll-text i { color: #ff5c00; animation: bounce 2s infinite; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(8px); }
+        }
+
+        /* ---------- CORE FOCUS ---------- */
+        .core-focus { padding: 100px 0; background: #fff; }
+
+        .focus-heading {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 30px;
+        }
+
+        .orange-title {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .focus-heading h2 {
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1.15;
+            text-transform: uppercase;
+        }
+        .focus-heading h2 strong { color: #ff5c00; }
+
+        .focus-heading p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .focus-card {
+            background: #f7f7f7;
+            padding: 45px 30px;
+            border-radius: 6px;
+            transition: 0.4s;
+            height: 100%;
+            border: 2px solid transparent;
+        }
+        .focus-card.active-focus,
+        .focus-card:hover {
+            background: #111;
+            color: #fff;
+            border-color: #ff5c00;
+            transform: translateY(-6px);
+        }
+        .focus-icon {
+            width: 60px; height: 60px;
+            background: #ff5c00; color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+        .focus-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .focus-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #666;
+        }
+        .focus-card.active-focus p,
+        .focus-card:hover p { color: #bbb; }
+
+        /* ---------- EXERCISES ---------- */
+        .core-exercises {
+            padding: 100px 0;
+            background: #f7f7f7;
+        }
+
+        .exercise-heading {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 70px;
+        }
+        .exercise-heading > span {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .exercise-heading h2 {
+            font-size: 44px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+        .exercise-heading h2 strong { color: #ff5c00; display: block; }
+        .exercise-heading p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .core-exercise-card {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 6px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+        }
+        .core-exercise-card.reverse-card {
+            grid-template-columns: 1.1fr 1fr;
+        }
+        .core-exercise-card.reverse-card .exercise-image {
+            order: 2;
+        }
+
+        .exercise-image {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            height: 340px;
+        }
+        .exercise-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .core-exercise-card:hover .exercise-image img { transform: scale(1.05); }
+        .exercise-image span {
+            position: absolute;
+            top: 20px; left: 20px;
+            background: #ff5c00; color: #fff;
+            width: 50px; height: 50px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; font-weight: 900;
+            border-radius: 50%;
+        }
+
+        .exercise-title span {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .exercise-title h3 {
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .exercise-content p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .exercise-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+        .exercise-details > div {
+            text-align: left;
+        }
+        .exercise-details i {
+            color: #ff5c00;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .exercise-details strong {
+            display: block;
+            font-size: 22px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .exercise-details span {
+            color: #999;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ---------- FINISHER ---------- */
+        .finisher-section {
+            padding: 100px 0;
+            background: #111;
+            color: #fff;
+        }
+        .finisher-box {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 60px;
+            border-radius: 6px;
+            border: 1px solid #262626;
+        }
+        .finisher-content > span {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .finisher-content h2 {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .finisher-content h2 strong { color: #ff5c00; display: block; }
+        .finisher-content p {
+            color: #bbb;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+        .finisher-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            transition: 0.3s;
+        }
+        .finisher-btn:hover { background: transparent; color: #ff5c00; }
+
+        .finisher-number {
+            text-align: center;
+        }
+        .finisher-number span {
+            font-size: 140px;
+            font-weight: 900;
+            color: #ff5c00;
+            line-height: 1;
+            display: block;
+        }
+        .finisher-number small {
+            display: block;
+            color: #fff;
+            font-size: 12px;
+            letter-spacing: 4px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .core-hero h1 { font-size: 40px; }
+            .focus-heading { grid-template-columns: 1fr; gap: 20px; }
+            .focus-heading h2 { font-size: 30px; }
+            .core-exercise-card,
+            .core-exercise-card.reverse-card {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 25px;
+            }
+            .core-exercise-card.reverse-card .exercise-image { order: 0; }
+            .exercise-image { height: 260px; }
+            .exercise-title h3 { font-size: 26px; }
+            .finisher-box { grid-template-columns: 1fr; padding: 40px 30px; }
+            .finisher-content h2 { font-size: 32px; }
+            .finisher-number span { font-size: 90px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .core-hero h1 { font-size: 30px; }
+            .hero-workout-card { padding: 30px 25px; }
+            .hero-workout-card h3 { font-size: 24px; }
+            .exercise-heading h2 { font-size: 28px; }
+            .exercise-details { grid-template-columns: 1fr; gap: 15px; }
+            .hero-buttons { gap: 15px; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =====================================================
+                        HERO
+===================================================== -->
+<section class="core-hero">
+
+    <div class="core-hero-image"></div>
+    <div class="core-overlay"></div>
+
+    <div class="container position-relative">
+        <div class="row align-items-center min-vh-100">
+
+            <!-- HERO TEXT -->
+            <div class="col-lg-7">
+                <span class="hero-badge">
+                    <i class="fa-solid fa-fire"></i>
+                    CORE TRAINING
+                </span>
+
+                <h1>
+                    BUILD A
+                    <span>STRONG</span>
+                    CORE.
+                </h1>
+
+                <p class="hero-text">
+                    Strengthen your core, improve your balance
+                    and build a powerful foundation for every
+                    workout.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#core-workout" class="core-btn">
+                        START TRAINING
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="workout.html" class="hero-link">
+                        EXPLORE EXERCISES
+                    </a>
+                </div>
+            </div>
+
+            <!-- HERO CARD -->
+            <div class="col-lg-5">
+                <div class="hero-workout-card">
+                    <div class="card-top">
+                        <span>TODAY'S SESSION</span>
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+
+                    <h3>
+                        CORE
+                        <strong>POWER</strong>
+                    </h3>
+
+                    <div class="hero-card-stats">
+                        <div>
+                            <strong>30</strong>
+                            <span>MIN</span>
+                        </div>
+                        <div>
+                            <strong>05</strong>
+                            <span>EXERCISES</span>
+                        </div>
+                        <div>
+                            <strong>300</strong>
+                            <span>KCAL</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-line"><span></span></div>
+
+                    <small>BEGINNER FRIENDLY • CORE FOCUS</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="scroll-text">
+        SCROLL TO TRAIN
+        <i class="fa-solid fa-arrow-down"></i>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    CORE FOCUS
+===================================================== -->
+<section class="core-focus" id="core-workout">
+    <div class="container">
+
+        <div class="focus-heading">
+            <div>
+                <span class="orange-title">WHY TRAIN YOUR CORE?</span>
+                <h2>
+                    YOUR CORE IS
+                    <strong>YOUR FOUNDATION.</strong>
+                </h2>
+            </div>
+
+            <p>
+                A strong core supports better movement,
+                posture, balance and performance during
+                everyday activities and workouts.
+            </p>
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-4">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Stability</h3>
+                    <p>Improve body control and stability during different movements.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="focus-card active-focus">
+                    <div class="focus-icon"><i class="fa-solid fa-person-running"></i></div>
+                    <h3>Performance</h3>
+                    <p>Build a stronger foundation for your workouts and physical activities.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="focus-card">
+                    <div class="focus-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Control</h3>
+                    <p>Develop better movement control and body awareness.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =====================================================
+                    EXERCISES
+===================================================== -->
+<section class="core-exercises" id="exercises">
+    <div class="container">
+
+        <div class="exercise-heading">
+            <span>01 — 05</span>
+            <h2>CORE <strong>CIRCUIT</strong></h2>
+            <p>Complete each exercise with controlled movements and proper form.</p>
+        </div>
+
+        <!-- EXERCISE 1 -->
+        <div class="core-exercise-card">
+            <div class="exercise-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNYunWBsK_1ESLjEAT3V3efl_1KmxxFDMMbDE_ZSkZw&s=10" alt="Crunches">
+                <span>01</span>
+            </div>
+
+            <div class="exercise-content">
+                <div class="exercise-title">
+                    <span>CORE ACTIVATION</span>
+                    <h3>Crunches</h3>
+                </div>
+
+                <p>Focus on controlled abdominal contractions while keeping your movement steady.</p>
+
+                <div class="exercise-details">
+                    <div><i class="fa-solid fa-layer-group"></i><strong>3</strong><span>SETS</span></div>
+                    <div><i class="fa-solid fa-repeat"></i><strong>15</strong><span>REPS</span></div>
+                    <div><i class="fa-solid fa-clock"></i><strong>45</strong><span>SEC REST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 2 -->
+        <div class="core-exercise-card reverse-card">
+            <div class="exercise-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCGtrw7Ska9cM4WKmiUmbmSu9tbAhm9MLgSh4erXnj_A&s=10" alt="Plank">
+                <span>02</span>
+            </div>
+
+            <div class="exercise-content">
+                <div class="exercise-title">
+                    <span>CORE STABILITY</span>
+                    <h3>Plank</h3>
+                </div>
+
+                <p>Maintain a strong straight position and engage your entire core throughout the hold.</p>
+
+                <div class="exercise-details">
+                    <div><i class="fa-solid fa-layer-group"></i><strong>3</strong><span>SETS</span></div>
+                    <div><i class="fa-solid fa-stopwatch"></i><strong>30</strong><span>SEC HOLD</span></div>
+                    <div><i class="fa-solid fa-clock"></i><strong>45</strong><span>SEC REST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 3 -->
+        <div class="core-exercise-card">
+            <div class="exercise-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE-M8Mcna4vBAmYDxsW9lFmEk4p9awiiOXbMAeFWkw0g&s=10" alt="Leg Raises">
+                <span>03</span>
+            </div>
+
+            <div class="exercise-content">
+                <div class="exercise-title">
+                    <span>LOWER ABS</span>
+                    <h3>Leg Raises</h3>
+                </div>
+
+                <p>Keep your movements controlled and avoid swinging while lifting and lowering your legs.</p>
+
+                <div class="exercise-details">
+                    <div><i class="fa-solid fa-layer-group"></i><strong>3</strong><span>SETS</span></div>
+                    <div><i class="fa-solid fa-repeat"></i><strong>12</strong><span>REPS</span></div>
+                    <div><i class="fa-solid fa-clock"></i><strong>60</strong><span>SEC REST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 4 -->
+        <div class="core-exercise-card reverse-card">
+            <div class="exercise-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5rFKw0IrWJuAKFgpYL58X6lxkMczbIvMC-ne_Vk0kUw&s=10" alt="Russian Twist">
+                <span>04</span>
+            </div>
+
+            <div class="exercise-content">
+                <div class="exercise-title">
+                    <span>OBLIQUES</span>
+                    <h3>Russian Twist</h3>
+                </div>
+
+                <p>Rotate your torso under control and keep your core engaged throughout every repetition.</p>
+
+                <div class="exercise-details">
+                    <div><i class="fa-solid fa-layer-group"></i><strong>3</strong><span>SETS</span></div>
+                    <div><i class="fa-solid fa-repeat"></i><strong>16</strong><span>REPS</span></div>
+                    <div><i class="fa-solid fa-clock"></i><strong>45</strong><span>SEC REST</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISE 5 -->
+        <div class="core-exercise-card final-exercise">
+            <div class="exercise-image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7lo06iksuRv8iLrZ1WpJt2anU7-MijYiRt2lECky1LQ&s=10" alt="Bicycle Crunch">
+                <span>05</span>
+            </div>
+
+            <div class="exercise-content">
+                <div class="exercise-title">
+                    <span>CORE FINISHER</span>
+                    <h3>Bicycle Crunch</h3>
+                </div>
+
+                <p>Finish the workout with controlled alternating movements to challenge your entire abdominal area.</p>
+
+                <div class="exercise-details">
+                    <div><i class="fa-solid fa-layer-group"></i><strong>3</strong><span>SETS</span></div>
+                    <div><i class="fa-solid fa-repeat"></i><strong>20</strong><span>REPS</span></div>
+                    <div><i class="fa-solid fa-clock"></i><strong>30</strong><span>SEC REST</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+                    FINISHER
+===================================================== -->
+<section class="finisher-section">
+    <div class="container">
+
+        <div class="finisher-box">
+
+            <div class="finisher-content">
+                <span>FINAL ROUND</span>
+
+                <h2>
+                    CORE
+                    <strong>FINISHER.</strong>
+                </h2>
+
+                <p>
+                    Complete one final round of your
+                    favourite core exercise and finish
+                    your session strong.
+                </p>
+
+                <a href="#exercises" class="finisher-btn">
+                    REPEAT CIRCUIT
+                    <i class="fa-solid fa-rotate-right"></i>
+                </a>
+            </div>
+
+            <div class="finisher-number">
+                <span>05</span>
+                <small>EXERCISES</small>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button>Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonilas</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+           
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- ================= BACK TO TOP ================= -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

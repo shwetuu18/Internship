@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife | Classes</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222; border-radius: 0;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 14px;
+            padding: 10px 18px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler {
+            border: none; outline: none; box-shadow: none !important;
+        }
+
+        /* ---------- HERO ---------- */
+        .classes-hero {
+            position: relative;
+            padding: 130px 0 110px;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+            overflow: hidden;
+        }
+        .classes-hero .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+            pointer-events: none;
+        }
+        .classes-hero .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+        }
+
+        .sub-title {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .classes-hero h1 {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .classes-hero p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 620px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-orange {
+            background: #ff5c00;
+            color: #fff;
+            border: 2px solid #ff5c00;
+            padding: 14px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.3s;
+        }
+        .btn-orange:hover { background: transparent; color: #ff5c00; }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 14px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.3s;
+        }
+        .btn-outline-light:hover { background: #fff; color: #111; }
+
+        /* ---------- STATS ---------- */
+        .stats-section {
+            padding: 60px 0;
+            background: #f7f7f7;
+        }
+        .stats-section h2 {
+            font-size: 44px;
+            font-weight: 900;
+            color: #ff5c00;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stats-section p {
+            color: #666;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* ---------- CLASSES ---------- */
+        .classes-section { padding-bottom: 100px; background: #fff; }
+
+        .section-title h1 {
+            font-size: 42px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .class-card {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: 0.4s;
+            height: 100%;
+        }
+        .class-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+        }
+        .class-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .class-card:hover img { transform: scale(1.06); }
+
+        .class-info {
+            padding: 30px 28px;
+        }
+        .class-info h4 {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .class-info h4 i {
+            color: #ff5c00;
+            font-size: 20px;
+        }
+        .class-info p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ---------- FREE TRIAL MODAL ---------- */
+        .free-trial-modal {
+            background: #0e0e0e;
+            color: #fff;
+            border: 1px solid #1e1e1e;
+            border-radius: 0;
+        }
+        .free-trial-modal .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .free-trial-modal .modal-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .free-trial-modal .modal-title i { color: #ff5c00; margin-right: 10px; }
+        .free-trial-modal .modal-header p {
+            color: #999;
+            font-size: 13px;
+            margin: 5px 0 0;
+        }
+        .free-trial-modal .modal-body { padding: 30px; }
+        .free-trial-modal label {
+            color: #ccc;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .free-trial-modal .form-control,
+        .free-trial-modal .form-select {
+            background: #161616;
+            border: 1px solid #262626;
+            color: #fff;
+            padding: 12px 14px;
+            font-size: 14px;
+            border-radius: 0;
+        }
+        .free-trial-modal .form-control:focus,
+        .free-trial-modal .form-select:focus {
+            background: #161616;
+            border-color: #ff5c00;
+            color: #fff;
+            box-shadow: none;
+        }
+        .free-trial-modal .form-control::placeholder { color: #666; }
+        .free-trial-modal .form-check-label {
+            color: #bbb;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+        .free-trial-modal .form-check-input:checked {
+            background-color: #ff5c00;
+            border-color: #ff5c00;
+        }
+
+        .generate-pass-btn {
+            background: #ff5c00;
+            color: #fff;
+            border: 2px solid #ff5c00;
+            padding: 16px 36px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 13px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.3s;
+        }
+        .generate-pass-btn:hover {
+            background: transparent;
+            color: #ff5c00;
+        }
+
+        /* ---------- RECEIPT MODAL ---------- */
+        .receipt-modal {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .receipt-modal .modal-body { padding: 0; }
+
+        #trialReceipt {
+            background: #0e0e0e;
+            color: #fff;
+            padding: 40px 35px;
+            font-family: 'Montserrat', monospace;
+        }
+        .receipt-header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 2px dashed #262626;
+            margin-bottom: 25px;
+        }
+        .receipt-logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+        .receipt-logo i { color: #ff5c00; margin-right: 10px; }
+        .receipt-header h4 {
+            color: #ff5c00;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .receipt-header p {
+            color: #999;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .pass-id {
+            background: #161616;
+            border: 1px dashed #ff5c00;
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .pass-id strong {
+            color: #ff5c00;
+            font-size: 16px;
+            font-weight: 900;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .receipt-details {
+            margin-bottom: 25px;
+        }
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-bottom: 1px dashed #1e1e1e;
+            font-size: 13px;
+        }
+        .receipt-row span {
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .receipt-row strong {
+            color: #fff;
+            font-weight: 700;
+            text-align: right;
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .receipt-status {
+            text-align: center;
+            color: #22c55e;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 15px 0;
+            border-top: 2px dashed #262626;
+            border-bottom: 2px dashed #262626;
+            margin-bottom: 20px;
+        }
+        .receipt-status i { margin-right: 8px; }
+
+        .entry-note {
+            background: rgba(255,92,0,0.1);
+            border-left: 3px solid #ff5c00;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .entry-note i { color: #ff5c00; margin-right: 6px; }
+
+        .receipt-footer {
+            text-align: center;
+        }
+        .receipt-footer p {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .receipt-footer small {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .receipt-buttons {
+            display: flex;
+            gap: 10px;
+            padding: 20px 20px 0;
+        }
+        .receipt-buttons .btn {
+            flex: 1;
+            border-radius: 0;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 12px;
+        }
+        .receipt-buttons .btn-dark {
+            background: #111;
+            border-color: #111;
+        }
+        .receipt-buttons .btn-dark:hover { background: #000; }
+        .receipt-buttons .btn-orange {
+            background: #ff5c00;
+            border: 2px solid #ff5c00;
+            color: #fff;
+        }
+        .receipt-buttons .btn-orange:hover {
+            background: transparent;
+            color: #ff5c00;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .classes-hero h1 { font-size: 40px; }
+            .classes-hero { padding: 100px 0 70px; }
+            .section-title h1 { font-size: 30px; }
+            .stats-section h2 { font-size: 32px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .classes-hero h1 { font-size: 30px; }
+            .receipt-buttons { flex-direction: column; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+             <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =========================
+     CLASSES SECTION START
+========================== -->
+<section class="classes-section">
+
+    <!-- HERO BANNER -->
+    <div class="classes-hero">
+        <div class="overlay"></div>
+
+        <div class="container hero-content">
+
+            <span class="sub-title">FITLIFE FITNESS PROGRAMS</span>
+
+            <h1>Fitness Classes</h1>
+
+            <p>
+                Discover professional fitness classes designed to
+                help you build strength, improve endurance,
+                and achieve your fitness goals faster.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#popularClasses" class="btn btn-orange">Explore Classes</a>
+
+                <button type="button" class="btn btn-outline-light"
+                        data-bs-toggle="modal"
+                        data-bs-target="#freeTrialModal">
+                    Free Trial
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="container stats-section">
+        <div class="row text-center">
+
+            <div class="col-md-3 col-6">
+                <h2>10000+</h2>
+                <p>Members</p>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <h2>2000+</h2>
+                <p>Classes</p>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <h2>1000+</h2>
+                <p>Trainers</p>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <h2>4.9★</h2>
+                <p>Rating</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CLASSES CARDS -->
+    <div class="container py-5" id="popularClasses">
+
+        <div class="section-title text-center mb-5">
+            <h1>Our Popular Classes</h1>
+            <p>Choose the perfect class for your fitness journey.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- CARD 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://images.ctfassets.net/0k812o62ndtw/2KcQ94Xbkv3VN9Pm7pBomh/3f911a82035ce4a357f0d9d288afe134/2025.05.30_SWEAT_KAYLA_HOME01201-1024x683-27c3a53.jpg?w=1024&q=85" alt="Strength Training">
+                    <div class="class-info">
+                        <h4><i class="bi bi-trophy-fill"></i> Strength Training</h4>
+                        <p>Build muscle, improve power and increase overall body strength.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://crunch.com/wp-content/uploads/2024/08/CR011AG_July-w-o-7-22-article-images_HIIT-Workout_banner_7.30.24.jpg" alt="HIIT">
+                    <div class="class-info">
+                        <h4><i class="bi bi-lightning-charge-fill"></i> HIIT Workout</h4>
+                        <p>High-intensity workouts designed for rapid fat loss and endurance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5mHJzbVQMsyWT0YSYRWkKG-TG6iDR4FykfC4dHLo9UetafUeb7XL9Qivx&s=10" alt="Yoga">
+                    <div class="class-info">
+                        <h4><i class="bi bi-heart-pulse-fill"></i> Yoga & Flexibility</h4>
+                        <p>Improve flexibility, balance and mental well-being.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8wKtqbY2jFUAfazw9eKekHnI_pelzHUEeNlXsmbLwHkXi_S5fji2BI8s&s=10" alt="Zumba">
+                    <div class="class-info">
+                        <h4><i class="bi bi-music-note-beamed"></i> Zumba Fitness</h4>
+                        <p>Fun dance workouts that burn calories while keeping you energized.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4AwHDyOC96t-Xyfvz-4xVKw8BN2eQJwvK8kRBAPIMbjecORbDNDlgo-g&s=10" alt="Pilates">
+                    <div class="class-info">
+                        <h4><i class="bi bi-person-arms-up"></i> Pilates</h4>
+                        <p>Strengthen your core and improve posture through controlled movements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="class-card">
+                    <img src="https://img.magnific.com/free-photo/people-doing-indoor-cycling_23-2149270249.jpg?semt=ais_hybrid&w=740&q=80" alt="Cycling">
+                    <div class="class-info">
+                        <h4><i class="bi bi-bicycle"></i> Indoor Cycling</h4>
+                        <p>Boost stamina and burn calories with high-energy cycling sessions.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =====================================================
+     FREE TRIAL FORM POPUP
+===================================================== -->
+<div class="modal fade" id="freeTrialModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content free-trial-modal">
+
+            <div class="modal-header">
+                <div>
+                    <h3 class="modal-title">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        Free Trial Registration
+                    </h3>
+                    <p>Join FitLife for your free trial session</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <form id="freeTrialForm" autocomplete="off">
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="trialName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="tel" class="form-control" id="trialMobile" placeholder="Enter mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="trialEmail" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-control" id="trialAge" placeholder="Enter your age" min="13" max="100" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Select Class</label>
+                            <select class="form-select" id="trialClass" required>
+                                <option value="">Choose a class</option>
+                                <option value="Strength Training">Strength Training</option>
+                                <option value="HIIT Workout">HIIT Workout</option>
+                                <option value="Yoga & Flexibility">Yoga & Flexibility</option>
+                                <option value="Zumba Fitness">Zumba Fitness</option>
+                                <option value="Pilates">Pilates</option>
+                                <option value="Indoor Cycling">Indoor Cycling</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Trial Date</label>
+                            <input type="date" class="form-control" id="trialDate" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Preferred Time</label>
+                            <select class="form-select" id="trialTime" required>
+                                <option value="">Choose time</option>
+                                <option value="Morning - 7:00 AM">Morning - 7:00 AM</option>
+                                <option value="Morning - 9:00 AM">Morning - 9:00 AM</option>
+                                <option value="Evening - 5:00 PM">Evening - 5:00 PM</option>
+                                <option value="Evening - 7:00 PM">Evening - 7:00 PM</option>
+                                <option value="Evening - 9:00 PM">Evening - 9:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Emergency Contact</label>
+                            <input type="tel" class="form-control" id="trialEmergency" placeholder="Emergency contact number" pattern="[0-9]{10}" maxlength="10" required>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="trialTerms" required>
+                                <label class="form-check-label" for="trialTerms">
+                                    I confirm that the information provided is correct and I agree to the FitLife free trial rules.
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn generate-pass-btn">
+                                <i class="fa-solid fa-ticket"></i>
+                                Generate Free Trial Pass
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     FREE TRIAL RECEIPT POPUP
+===================================================== -->
+<div class="modal fade" id="receiptModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content receipt-modal">
+
+            <div class="modal-body">
+
+                <div id="trialReceipt">
+
+                    <div class="receipt-header">
+                        <div class="receipt-logo">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            FITLIFE
+                        </div>
+                        <h4>FREE TRIAL PASS</h4>
+                        <p>Your trial registration is confirmed</p>
+                    </div>
+
+                    <div class="pass-id">
+                        PASS ID:
+                        <strong id="receiptPassId">FT-00000</strong>
+                    </div>
+
+                    <div class="receipt-details">
+                        <div class="receipt-row">
+                            <span>Name</span>
+                            <strong id="receiptName"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Mobile</span>
+                            <strong id="receiptMobile"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Email</span>
+                            <strong id="receiptEmail"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Age</span>
+                            <strong id="receiptAge"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Class</span>
+                            <strong id="receiptClass"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Date</span>
+                            <strong id="receiptDate"></strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Time</span>
+                            <strong id="receiptTime"></strong>
+                        </div>
+                    </div>
+
+                    <div class="receipt-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        FREE TRIAL CONFIRMED
+                    </div>
+
+                    <div class="entry-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Please show this pass at the FitLife reception desk for entry.
+                    </div>
+
+                    <div class="receipt-footer">
+                        <p>Thank you for choosing FitLife!</p>
+                        <small>This pass is valid for one trial session only.</small>
+                    </div>
+
+                </div>
+
+                <div class="receipt-buttons">
+                    <button type="button" class="btn btn-dark" id="printReceiptBtn">
+                        <i class="fa-solid fa-print"></i> Print Receipt
+                    </button>
+                    <button type="button" class="btn btn-orange" id="downloadReceiptBtn">
+                        <i class="fa-solid fa-download"></i> Save Receipt
+                    </button>
+                </div>
+
+                <button type="button" class="btn btn-secondary w-100 mt-2"
+                        data-bs-dismiss="modal"
+                        style="border-radius:0; padding:12px; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase;">
+                    Close
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonilas</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+         
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+       <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+<!-- PAGE-SPECIFIC SCRIPT (Free Trial) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("freeTrialForm");
+    if (!form) return;
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Generate Pass ID
+        const passId = "FT-" + Math.floor(10000 + Math.random() * 90000);
+
+        // Fill receipt
+        document.getElementById("receiptPassId").textContent  = passId;
+        document.getElementById("receiptName").textContent    = document.getElementById("trialName").value;
+        document.getElementById("receiptMobile").textContent  = document.getElementById("trialMobile").value;
+        document.getElementById("receiptEmail").textContent   = document.getElementById("trialEmail").value;
+        document.getElementById("receiptAge").textContent     = document.getElementById("trialAge").value;
+        document.getElementById("receiptClass").textContent   = document.getElementById("trialClass").value;
+        document.getElementById("receiptDate").textContent    = document.getElementById("trialDate").value;
+        document.getElementById("receiptTime").textContent    = document.getElementById("trialTime").value;
+
+        // Switch modals
+        const formModal = bootstrap.Modal.getInstance(document.getElementById("freeTrialModal"));
+        if (formModal) formModal.hide();
+
+        const receiptModal = new bootstrap.Modal(document.getElementById("receiptModal"));
+        receiptModal.show();
+
+        // Reset form
+        form.reset();
+    });
+
+    // Print receipt
+    const printBtn = document.getElementById("printReceiptBtn");
+    if (printBtn) {
+        printBtn.addEventListener("click", () => {
+            const content = document.getElementById("trialReceipt").innerHTML;
+            const w = window.open("", "", "width=600,height=800");
+            w.document.write(`
+                <html><head><title>FitLife Trial Pass</title>
+                <style>
+                    body { font-family: 'Montserrat', sans-serif; background:#0e0e0e; color:#fff; padding:30px; }
+                    .pass-id strong { color:#ff5c00; }
+                    .receipt-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px dashed #262626; }
+                    .receipt-row span { color:#888; text-transform:uppercase; font-size:12px; }
+                    .receipt-row strong { color:#fff; }
+                    .receipt-header { text-align:center; padding-bottom:20px; border-bottom:2px dashed #262626; margin-bottom:20px; }
+                    .receipt-header h4 { color:#ff5c00; letter-spacing:3px; }
+                    .receipt-status { text-align:center; color:#22c55e; padding:15px 0; margin:20px 0; }
+                    .receipt-footer { text-align:center; margin-top:20px; }
+                </style></head><body>${content}</body></html>
+            `);
+            w.document.close();
+            w.print();
+        });
+    }
+
+    // Download receipt (text file)
+    const dlBtn = document.getElementById("downloadReceiptBtn");
+    if (dlBtn) {
+        dlBtn.addEventListener("click", () => {
+            const receipt = document.getElementById("trialReceipt");
+            const text = receipt.innerText;
+            const blob = new Blob([text], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "FitLife-Trial-Pass-" + Date.now() + ".txt";
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    }
+
+});
+</script>
+
+</body>
+
+</html>
