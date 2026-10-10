@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>FitLife | Your Cart</title>
+
+        <!-- Favicon — Dumbbell -->
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+
+        <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #f7f7f7;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- HEADER (same as index) ---------- */
+        .site-header {
+            background: #0a0a0a;
+            border-bottom: 1px solid #1c1c1c;
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+        }
+        .site-header .navbar { background: transparent !important; padding: 12px 0; }
+
+        .brand {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 24px; font-weight: 900; color: #fff;
+            letter-spacing: 1px; transition: 0.3s;
+        }
+        .brand:hover { color: #ff5c00; }
+        .brand-icon {
+            width: 42px; height: 42px; background: #ff5c00;
+            color: #fff; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; box-shadow: 0 4px 14px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        .brand:hover .brand-icon {
+            background: #fff; color: #ff5c00; transform: rotate(-8deg);
+        }
+        .brand-text .orange { color: #ff5c00; }
+
+        .navbar-nav { gap: 4px; }
+        .navbar-nav .nav-link {
+            color: #d5d5d5 !important; font-size: 14px; font-weight: 600;
+            letter-spacing: 0.5px; padding: 10px 16px !important;
+            position: relative; transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222;
+            border-radius: 6px; padding: 8px 0; margin-top: 8px;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 13px; font-weight: 500;
+            padding: 10px 20px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .header-right { display: flex; align-items: center; gap: 22px; }
+        .header-phone {
+            display: flex; align-items: center; gap: 8px;
+            color: #fff; font-size: 13px; font-weight: 600;
+            transition: 0.3s;
+        }
+        .header-phone i { color: #ff5c00; font-size: 16px; }
+        .header-phone:hover { color: #ff5c00; }
+
+        .header-icons { display: flex; align-items: center; gap: 16px; }
+        .header-icons a {
+            color: #fff; font-size: 18px;
+            transition: 0.3s; position: relative;
+        }
+        .header-icons a:hover { color: #ff5c00; transform: translateY(-2px); }
+        .header-icons .cart-count {
+            position: absolute; top: -8px; right: -10px;
+            background: #ff5c00; color: #fff;
+            font-size: 9px; font-weight: 800;
+            width: 16px; height: 16px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .navbar-toggler {
+            border: 1px solid #333; padding: 6px 10px;
+            outline: none; box-shadow: none !important;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ff5c00' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ---------- PAGE TITLE ---------- */
+        .page-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #fff;
+            padding: 70px 0 60px;
+            text-align: center;
+            border-bottom: 1px solid #1c1c1c;
+        }
+        .page-hero h1 {
+            font-size: 52px; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .page-hero h1 span { color: #ff5c00; }
+        .page-hero p { color: #999; font-size: 14px; margin: 0; }
+
+        /* ===============================
+   SEARCH
+================================ */
+
+.search-wrapper {
+    position: relative;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    padding: 8px;
+    transition: 0.3s;
+}
+
+.search-btn:hover {
+    color: #ff6b2c;
+}
+
+/* Search Box */
+
+.search-box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+
+    width: 300px;
+
+    background: #111;
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+/* Open Search */
+
+.search-box.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: white;
+    font-size: 15px;
+
+    padding: 10px;
+}
+
+.search-box input::placeholder {
+    color: #aaa;
+}
+
+        .search-box button {
+         width: 42px;
+         height: 42px;
+
+        border: none;
+        border-radius: 6px;
+
+        background: #ff6b2c;
+        color: white;
+
+        cursor: pointer;
+
+        font-size: 16px;
+        }
+
+       .search-box button:hover {
+         background: #ff7d45;
+        }
+
+        /* ---------- CART SECTION ---------- */
+        .cart-section { padding: 60px 0 100px; }
+
+        .cart-box {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+        }
+
+        .cart-header {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 22px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-header h3 {
+            font-size: 18px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
+            margin: 0;
+        }
+        .cart-header span {
+            color: #ff5c00; font-size: 13px; font-weight: 700;
+        }
+
+        /* Cart items list */
+        .cart-list {
+            padding: 10px 30px 30px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 2fr 1fr 1fr auto;
+            gap: 25px;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .cart-item:last-child { border-bottom: 0; }
+
+        .cart-item-img {
+            width: 100px; height: 100px;
+            background: #f7f7f7;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .cart-item-img img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        .cart-item-info h4 {
+            font-size: 15px; font-weight: 800;
+            text-transform: uppercase; margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+        .cart-item-info span {
+            color: #999; font-size: 12px;
+            letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        .cart-item-price {
+            font-size: 15px; font-weight: 700; color: #111;
+        }
+        .cart-item-price small {
+            display: block; color: #999;
+            font-size: 11px; font-weight: 500;
+        }
+
+        /* Quantity control */
+        .qty-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 30px;
+            overflow: hidden;
+            width: fit-content;
+        }
+        .qty-control button {
+            width: 32px; height: 32px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            transition: 0.3s;
+        }
+        .qty-control button:hover {
+            background: #ff5c00;
+            color: #fff;
+        }
+        .qty-control input {
+            width: 40px;
+            text-align: center;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            font-weight: 700;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .cart-item-total {
+            font-size: 16px; font-weight: 900;
+            color: #111; text-align: right;
+            white-space: nowrap;
+        }
+        .cart-item-total small { color: #999; font-weight: 500; font-size: 11px; }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: #999;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 6px;
+            border-radius: 50%;
+        }
+        .remove-btn:hover {
+            color: #ef4444;
+            background: #fef2f2;
+        }
+
+        /* Empty cart */
+        .cart-empty {
+            text-align: center;
+            padding: 80px 30px;
+            display: none;
+        }
+        .cart-empty i {
+            font-size: 70px;
+            color: #ddd;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .cart-empty h3 {
+            font-size: 22px; font-weight: 800;
+            text-transform: uppercase; margin-bottom: 12px;
+        }
+        .cart-empty p {
+            color: #999; font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .cart-empty a {
+            display: inline-block;
+            background: #ff5c00;
+            color: #fff;
+            padding: 14px 34px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .cart-empty a:hover { background: #e04f00; }
+
+        /* ---------- CART SUMMARY ---------- */
+        .cart-summary {
+            background: #0a0a0a;
+            color: #fff;
+            padding: 40px 35px;
+            border-radius: 8px;
+            position: sticky;
+            top: 100px;
+        }
+        .cart-summary h3 {
+            font-size: 18px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        .summary-row span { color: #999; }
+        .summary-row strong { color: #fff; font-weight: 700; }
+        .summary-row.discount strong { color: #22c55e; }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+            margin-top: 20px;
+            border-top: 2px solid #ff5c00;
+            font-size: 18px;
+        }
+        .summary-total span { color: #fff; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .summary-total strong {
+            color: #ff5c00; font-size: 26px; font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+
+        /* Promo code */
+        .promo-box {
+            display: flex;
+            margin: 20px 0;
+            background: #161616;
+            border: 1px solid #262626;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .promo-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 14px;
+            color: #fff;
+            font-size: 13px;
+            outline: none;
+            font-family: inherit;
+        }
+        .promo-box input::placeholder { color: #666; }
+        .promo-box button {
+            background: #ff5c00;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .promo-box button:hover { background: #e04f00; }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            background: #ff5c00;
+            color: #fff;
+            text-align: center;
+            padding: 16px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            font-family: inherit;
+            text-decoration: none;
+        }
+        .checkout-btn:hover {
+            background: transparent;
+            color: #ff5c00;
+        }
+
+        .continue-link {
+            display: block;
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 18px;
+            transition: 0.3s;
+        }
+        .continue-link:hover { color: #ff5c00; }
+
+        /* ---------- CHECKOUT MODAL ---------- */
+        .checkout-modal {
+            background: #0e0e0e;
+            color: #fff;
+            border: 1px solid #1e1e1e;
+            border-radius: 0;
+        }
+        .checkout-modal .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .checkout-modal .modal-title {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .checkout-modal .modal-body { padding: 30px; }
+
+        .checkout-modal label {
+            color: #ccc;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .checkout-modal .form-control,
+        .checkout-modal .form-select {
+            background: #161616;
+            border: 1px solid #262626;
+            color: #fff;
+            padding: 12px 14px;
+            font-size: 14px;
+            border-radius: 0;
+            font-family: inherit;
+        }
+        .checkout-modal .form-control:focus,
+        .checkout-modal .form-select:focus {
+            background: #161616;
+            border-color: #ff5c00;
+            color: #fff;
+            box-shadow: none;
+        }
+        .checkout-modal .form-control::placeholder { color: #666; }
+
+        .order-success {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        .order-success i {
+            font-size: 60px;
+            color: #22c55e;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .order-success h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .order-success p {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .order-success strong { color: #ff5c00; }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+        .footer-box a {
+            display: block; color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515; border: 1px solid #222;
+            color: #fff; font-size: 13px; outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px; border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center; padding: 25px 0;
+            border-top: 1px solid #1c1c1c; margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        #topBtn {
+            position: fixed; bottom: 25px; right: 25px;
+            width: 46px; height: 46px; border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover { background: #e04f00; transform: translateY(-4px); }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .site-header .navbar { padding: 10px 0; }
+            .navbar-collapse {
+                background: #0a0a0a; margin-top: 12px;
+                padding: 15px; border-radius: 6px;
+                border: 1px solid #1e1e1e;
+            }
+            .navbar-nav { text-align: center; gap: 0; margin-bottom: 15px; }
+            .navbar-nav .nav-link { padding: 12px 16px !important; }
+            .header-right {
+                justify-content: center; padding-top: 15px;
+                border-top: 1px solid #1e1e1e;
+                flex-wrap: wrap;
+            }
+            .page-hero h1 { font-size: 34px; }
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 15px;
+            }
+            .cart-item-img { width: 80px; height: 80px; }
+            .cart-item-price,
+            .qty-control,
+            .cart-item-total {
+                grid-column: 2;
+            }
+            .remove-btn {
+                position: absolute;
+                top: 20px; right: 15px;
+            }
+            .cart-item { position: relative; }
+            .cart-summary { position: static; margin-top: 30px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .brand { font-size: 20px; }
+            .brand-icon { width: 36px; height: 36px; font-size: 16px; }
+            .page-hero h1 { font-size: 26px; }
+            .cart-summary { padding: 30px 25px; }
+        }
+
+    </style>
+
+    </head>
+
+    <body>
+
+        <!-- ================= HEADER ================= -->
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+
+                    <a href="index.html" class="brand">
+                        <span class="brand-icon"><i
+                                class="fa-solid fa-dumbbell"></i></span>
+                        <span class="brand-text">FIT<span
+                                class="orange">LIFE</span></span>
+                    </a>
+
+                    <button class="navbar-toggler" data-bs-toggle="collapse"
+                        data-bs-target="#mainMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainMenu">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item"><a class="nav-link"
+                                    href="membership.html">Join Us</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="workout.html">Workouts</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#"
+                                    data-bs-toggle="dropdown">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="nutrition.html">Nutrition</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="bodyanalysis.html">Inbody
+                                            Analysis</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="relaxation.html">Relaxation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="classes.html">Classes</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="testimonilas.html">Testimonials</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="blogw.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link active"
+                                    href="store.html">Store</a></li>
+                            <li class="nav-item"><a class="nav-link"
+                                    href="contact.html">Contact</a></li>
+                        </ul>
+
+                        <div class="header-right">
+
+                            <div class="header-icons">
+                           
+                                <a href="cart.html">
+                                    <i class="bi bi-cart3"></i>
+                                    <span class="cart-count"
+                                        id="cartCount">0</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <!-- ================= PAGE HERO ================= -->
+        <section class="page-hero">
+            <h1>YOUR <span>CART</span></h1>
+            <p>Review your items and proceed to checkout</p>
+        </section>
+
+        <!-- ================= CART SECTION ================= -->
+        <section class="cart-section">
+            <div class="container">
+                <div class="row g-4">
+
+                    <!-- LEFT: Cart items -->
+                    <div class="col-lg-8">
+                        <div class="cart-box">
+
+                            <div class="cart-header">
+                                <h3>Shopping Cart</h3>
+                                <span id="itemCountText">0 Items</span>
+                            </div>
+
+                            <div class="cart-list" id="cartList"></div>
+
+                            <div class="cart-empty" id="cartEmpty">
+                                <i class="bi bi-cart-x"></i>
+                                <h3>Your Cart Is Empty</h3>
+                                <p>Looks like you haven't added anything
+                                    yet.</p>
+                                <a href="store.html">Start Shopping</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Summary -->
+                    <div class="col-lg-4">
+                        <div class="cart-summary" id="cartSummary">
+
+                            <h3>Order Summary</h3>
+
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <strong id="subtotal">₹0</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <strong id="shipping">₹0</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>GST (18%)</span>
+                                <strong id="gst">₹0</strong>
+                            </div>
+                            <div class="summary-row discount" id="discountRow"
+                                style="display:none;">
+                                <span>Discount</span>
+                                <strong id="discount">-₹0</strong>
+                            </div>
+
+                            <div class="promo-box">
+                                <input type="text" id="promoInput"
+                                    placeholder="Promo code">
+                                <button type="button"
+                                    id="applyPromo">Apply</button>
+                            </div>
+
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <strong id="grandTotal">₹0</strong>
+                            </div>
+
+                            <button type="button" class="checkout-btn"
+                                id="checkoutBtn">
+                                Proceed to Checkout
+                            </button>
+
+                            <a href="store.html" class="continue-link">
+                                ← Continue Shopping
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CHECKOUT MODAL ================= -->
+        <div class="modal fade" id="checkoutModal" tabindex="-1"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content checkout-modal">
+
+                    <div class="modal-header">
+                        <div>
+                            <span
+                                style="color:#ff5c00; font-size:11px; font-weight:700; letter-spacing:3px;">FITLIFE
+                                CHECKOUT</span>
+                            <h3 class="modal-title mt-2">Complete Your
+                                Order</h3>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form id="orderForm">
+
+                            <div class="row g-3">
+
+                                <div class="col-md-6">
+                                    <label>Full Name</label>
+                                    <input type="text" name="name"
+                                        class="form-control"
+                                        placeholder="Enter your name" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email"
+                                        class="form-control"
+                                        placeholder="Enter your email" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone"
+                                        class="form-control"
+                                        placeholder="Enter phone number"
+                                        required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Pincode</label>
+                                    <input type="text" name="pincode"
+                                        class="form-control"
+                                        placeholder="Enter pincode" required>
+                                </div>
+
+                                <div class="col-12">
+                                    <label>Delivery Address</label>
+                                    <textarea name="address"
+                                        class="form-control" rows="3"
+                                        placeholder="Enter full address"
+                                        required></textarea>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Payment Method</label>
+                                    <select name="payment" class="form-select"
+                                        required>
+                                        <option value>Choose payment</option>
+                                        <option>Cash on Delivery</option>
+                                        <option>Credit / Debit Card</option>
+                                        <option>UPI</option>
+                                        <option>Net Banking</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>Order Notes (Optional)</label>
+                                    <input type="text" name="notes"
+                                        class="form-control"
+                                        placeholder="Any special instructions">
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="checkout-btn mt-4">
+                                Place Order — <span id="checkoutTotal">₹0</span>
+                            </button>
+
+                        </form>
+
+                        <div class="order-success" id="orderSuccess">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <h3>Order Placed Successfully!</h3>
+                            <p>Your Order ID: <strong
+                                    id="orderId">#FL-0000</strong></p>
+                            <p>We'll send a confirmation email shortly.</p>
+                            <a href="store.html" class="checkout-btn mt-4"
+                                style="display:inline-block; width:auto; padding:14px 40px;">
+                                Continue Shopping
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= FOOTER ================= -->
+        <footer class="footer">
+            <div class="footer-container">
+
+                <div class="footer-box">
+                    <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i>
+                        FitLife</h2>
+                    <p>Transforming lives through fitness, nutrition, and expert
+                        coaching.</p>
+                    <div class="newsletter">
+                        <h3>Newsletter</h3>
+                        <form id="newsletterForm">
+                            <input type="email" name="email"
+                                placeholder="Enter your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Contact Us</h3>
+                    <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Quick Links</h3>
+                    <a href="membership.html">Join Us</a>
+                    <a href="about.html">About</a>
+                    <a href="workout.html">Workout</a>
+                    <a href="store.html">Store</a>
+                    <a href="cart.html">Cart</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Find Us</h3>
+                    <iframe
+                        src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                        loading="lazy"></iframe>
+                     <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+               <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+            </div>
+        </footer>
+
+        <button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+        <!-- ================= SCRIPTS ================= -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
+
+        <!-- ================= CART SCRIPT (localStorage) ================= -->
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const CART_KEY = "fitlife_cart";
+    const PROMO_KEY = "fitlife_promo";
+
+    const cartList       = document.getElementById("cartList");
+    const cartEmpty      = document.getElementById("cartEmpty");
+    const itemCountText  = document.getElementById("itemCountText");
+    const cartCount      = document.getElementById("cartCount");
+    const subtotalEl     = document.getElementById("subtotal");
+    const shippingEl     = document.getElementById("shipping");
+    const gstEl          = document.getElementById("gst");
+    const discountEl     = document.getElementById("discount");
+    const discountRow    = document.getElementById("discountRow");
+    const grandTotalEl   = document.getElementById("grandTotal");
+    const checkoutTotal  = document.getElementById("checkoutTotal");
+    const checkoutBtn    = document.getElementById("checkoutBtn");
+    const applyPromoBtn  = document.getElementById("applyPromo");
+    const promoInput     = document.getElementById("promoInput");
+
+    // ---------- Storage helpers ----------
+    function getCart() {
+        try {
+            return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+        } catch (e) { return []; }
+    }
+    function saveCart(cart) {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    // ---------- Render ----------
+    function render() {
+        const cart = getCart();
+        const totalItems = cart.reduce((s, i) => s + i.qty, 0);
+
+        // Counts
+        if (cartCount) cartCount.textContent = totalItems;
+        if (itemCountText) itemCountText.textContent = totalItems + " Item" + (totalItems !== 1 ? "s" : "");
+
+        // Empty state
+        if (!cart.length) {
+            if (cartList) cartList.innerHTML = "";
+            if (cartEmpty) cartEmpty.style.display = "block";
+            if (document.getElementById("cartSummary")) document.getElementById("cartSummary").style.display = "none";
+            return;
+        }
+
+        if (cartEmpty) cartEmpty.style.display = "none";
+        if (document.getElementById("cartSummary")) document.getElementById("cartSummary").style.display = "block";
+
+        // Rows
+        if (cartList) {
+            cartList.innerHTML = cart.map((item, i) => `
+                <div class="cart-item" data-index="${i}">
+                    <div class="cart-item-img">
+                        <img src="${item.image || 'https://via.placeholder.com/200'}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <span>${item.category || 'Product'}</span>
+                    </div>
+                    <div class="cart-item-price">
+                        ₹${item.price}
+                        <small>each</small>
+                    </div>
+                    <div class="qty-control">
+                        <button type="button" class="qty-minus">−</button>
+                        <input type="text" value="${item.qty}" readonly>
+                        <button type="button" class="qty-plus">+</button>
+                    </div>
+                    <div class="cart-item-total">
+                        ₹${item.price * item.qty}
+                        <small>total</small>
+                    </div>
+                    <button type="button" class="remove-btn" title="Remove">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            `).join("");
+        }
+
+        // Totals
+        const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+        const shipping = subtotal >= 999 ? 0 : 99;
+        const gst      = Math.round(subtotal * 0.18);
+        const promo    = JSON.parse(localStorage.getItem(PROMO_KEY) || "null");
+        let discount   = 0;
+
+        if (promo && promo.code === "FITLIFE10") {
+            discount = Math.round(subtotal * 0.10);
+            if (discountRow) discountRow.style.display = "flex";
+            if (discountEl) discountEl.textContent = "-₹" + discount;
+        } else {
+            if (discountRow) discountRow.style.display = "none";
+        }
+
+        const grand = subtotal + shipping + gst - discount;
+
+        if (subtotalEl)   subtotalEl.textContent   = "₹" + subtotal;
+        if (shippingEl)   shippingEl.textContent   = shipping === 0 ? "FREE" : "₹" + shipping;
+        if (gstEl)        gstEl.textContent        = "₹" + gst;
+        if (grandTotalEl) grandTotalEl.textContent = "₹" + grand;
+        if (checkoutTotal) checkoutTotal.textContent = "₹" + grand;
+    }
+
+    // ---------- Actions ----------
+    if (cartList) {
+        cartList.addEventListener("click", (e) => {
+            const row = e.target.closest(".cart-item");
+            if (!row) return;
+            const idx = parseInt(row.dataset.index, 10);
+            const cart = getCart();
+            if (!cart[idx]) return;
+
+            if (e.target.closest(".qty-plus")) {
+                cart[idx].qty++;
+            } else if (e.target.closest(".qty-minus")) {
+                cart[idx].qty = Math.max(1, cart[idx].qty - 1);
+            } else if (e.target.closest(".remove-btn")) {
+                cart.splice(idx, 1);
+            }
+            saveCart(cart);
+            render();
+        });
+    }
+
+    // ---------- Promo ----------
+    if (applyPromoBtn) {
+        applyPromoBtn.addEventListener("click", () => {
+            const code = (promoInput.value || "").trim().toUpperCase();
+            if (code === "FITLIFE10") {
+                localStorage.setItem(PROMO_KEY, JSON.stringify({ code }));
+                alert("✅ Promo applied! 10% off");
+                render();
+            } else {
+                localStorage.removeItem(PROMO_KEY);
+                alert("❌ Invalid promo code. Try FITLIFE10");
+                render();
+            }
+        });
+    }
+
+    // ---------- Checkout modal ----------
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener("click", () => {
+            const cart = getCart();
+            if (!cart.length) return;
+            const modal = new bootstrap.Modal(document.getElementById("checkoutModal"));
+            modal.show();
+        });
+    }
+
+    // ---------- Place order ----------
+    const orderForm = document.getElementById("orderForm");
+    if (orderForm) {
+        orderForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(orderForm);
+            const cart = getCart();
+
+            // Generate order ID locally (until PHP backend)
+            const orderId = "FL-" + Math.floor(10000 + Math.random() * 90000);
+
+            // TODO: Replace with fetch() to api/order_place.php
+            const payload = {
+                orderId,
+                customer: Object.fromEntries(formData),
+                items: cart,
+                total: document.getElementById("checkoutTotal").textContent
+            };
+            console.log("Order submitted:", payload);
+
+            // Show success
+            orderForm.style.display = "none";
+            document.getElementById("orderId").textContent = "#" + orderId;
+            document.getElementById("orderSuccess").style.display = "block";
+
+            // Clear cart
+            localStorage.removeItem(CART_KEY);
+            localStorage.removeItem(PROMO_KEY);
+            setTimeout(() => {
+                window.location.href = "store.html";
+            }, 3000);
+        });
+    }
+
+    // ---------- Init ----------
+    render();
+});
+
+/* ===============================
+   SEARCH FUNCTION
+================================ */
+
+const searchBtn = document.getElementById("searchBtn");
+const searchBox = document.getElementById("searchBox");
+const searchInput = document.getElementById("searchInput");
+const searchSubmit = document.getElementById("searchSubmit");
+
+
+/* Open / Close Search */
+
+searchBtn.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    searchBox.classList.toggle("active");
+
+    if (searchBox.classList.contains("active")) {
+        searchInput.focus();
+    }
+
+});
+
+
+/* Prevent closing when clicking inside */
+
+searchBox.addEventListener("click", function (event) {
+    event.stopPropagation();
+});
+
+
+/* Close when clicking outside */
+
+document.addEventListener("click", function () {
+    searchBox.classList.remove("active");
+});
+
+
+/* Search */
+
+function performSearch() {
+
+    const searchValue = searchInput.value.trim().toLowerCase();
+
+    if (searchValue === "") {
+        alert("Please enter something to search.");
+        return;
+    }
+
+    const pages = {
+        "home": "index.html",
+        "join": "membership.html",
+        "membership": "membership.html",
+        "about": "about.html",
+        "workout": "workout.html",
+        "workouts": "workout.html",
+        "services": "service.html",
+        "nutrition": "nutrition.html",
+        "body analysis": "bodyanalysis.html",
+        "inbody": "bodyanalysis.html",
+        "relaxation": "relaxation.html",
+        "classes": "classes.html",
+        "testimonials": "testimonilas.html",
+        "blog": "blog.html"
+    };
+
+
+    if (pages[searchValue]) {
+
+        window.location.href = pages[searchValue];
+
+    } else {
+
+        alert(
+            "Sorry! We couldn't find '" +
+            searchValue +
+            "'."
+        );
+
+    }
+
+}
+
+
+/* Search Button */
+
+searchSubmit.addEventListener("click", performSearch);
+
+
+/* Enter Key */
+
+searchInput.addEventListener("keypress", function (event) {
+
+    if (event.key === "Enter") {
+        performSearch();
+    }
+
+});
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitLife | Visceral Fat</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR (standard FitLife) ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu { background: #111; border: 1px solid #222; border-radius: 0; }
+        .dropdown-item { color: #ddd; font-size: 14px; padding: 10px 18px; transition: 0.3s; }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler { border: none; outline: none; box-shadow: none !important; }
+
+        /* ---------- HERO ---------- */
+        .vf-hero {
+            position: relative;
+            padding: 100px 0 80px;
+            background: #0a0a0a;
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,92,0,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,92,0,0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .vf-hero .container { position: relative; z-index: 2; }
+
+        .vf-hero .row,
+        .vf-hero > .container > div {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content { max-width: 620px; }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .hero-label span {
+            width: 30px; height: 2px;
+            background: #ff5c00;
+        }
+
+        .vf-hero h1 {
+            font-size: 88px;
+            font-weight: 900;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+        }
+        .vf-hero h1 span {
+            color: #ff5c00;
+            display: block;
+        }
+
+        .hero-intro {
+            color: #bbb;
+            font-size: 16px;
+            line-height: 1.85;
+            max-width: 540px;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #ff5c00;
+            transition: 0.3s;
+        }
+        .primary-btn:hover { background: transparent; color: #ff5c00; }
+
+        .outline-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            padding: 16px 34px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 2px solid #fff;
+            transition: 0.3s;
+        }
+        .outline-btn:hover { background: #fff; color: #111; }
+
+        .hero-note {
+            color: #999;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .hero-note i { color: #ff5c00; }
+
+        /* Body orbit visual */
+        .body-orbit {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .orbit {
+            position: absolute;
+            border: 1px dashed rgba(255,92,0,0.3);
+            border-radius: 50%;
+        }
+        .orbit-one { width: 320px; height: 320px; animation: spin 20s linear infinite; }
+        .orbit-two { width: 420px; height: 420px; animation: spin 30s linear infinite reverse; }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .organ-core {
+            width: 180px; height: 180px;
+            background: radial-gradient(circle, #ff5c00, #cc4400);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 0 60px rgba(255,92,0,0.5);
+        }
+        .organ-glow {
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,92,0,0.4), transparent 70%);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .core-label {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 1.3;
+            z-index: 2;
+            position: relative;
+        }
+        .orbit-tag {
+            position: absolute;
+            background: #151515;
+            border: 1px solid #262626;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .orbit-tag i { color: #ff5c00; }
+        .tag-one { top: 20px; left: 50%; transform: translateX(-50%); }
+        .tag-two { right: 0; top: 50%; transform: translateY(-50%); }
+        .tag-three { bottom: 20px; left: 50%; transform: translateX(-50%); }
+
+        /* ---------- FACT STRIP ---------- */
+        .fact-strip {
+            padding: 60px 0;
+            background: #f7f7f7;
+        }
+        .fact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px 25px;
+            border-right: 1px solid #e5e5e5;
+        }
+        .fact-item:last-child { border-right: 0; }
+        .fact-number {
+            color: #ff5c00;
+            font-size: 40px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .fact-item small {
+            display: block;
+            color: #999;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .fact-item h5 {
+            font-size: 15px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* ---------- INSIDE SECTION ---------- */
+        .inside-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .section-kicker {
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+        .section-kicker.light { color: #ff5c00; }
+
+        .inside-section h2 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .inside-section h2 span { color: #ff5c00; display: block; }
+        .large-text {
+            color: #333;
+            font-size: 17px;
+            line-height: 1.75;
+            margin-bottom: 18px;
+            font-weight: 500;
+        }
+        .inside-section p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+        .inside-section strong { color: #111; font-weight: 800; }
+
+        .science-note {
+            background: #fff4ec;
+            border-left: 4px solid #ff5c00;
+            padding: 20px 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .science-note i {
+            color: #ff5c00;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+        .science-note strong {
+            display: block;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+        .science-note p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Fat comparison */
+        .fat-comparison {
+            background: #0a0a0a;
+            color: #fff;
+            border-radius: 6px;
+            padding: 35px;
+        }
+        .comparison-heading {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #262626;
+            margin-bottom: 25px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #999;
+        }
+        .fat-type {
+            display: grid;
+            grid-template-columns: 50px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .fat-type:last-of-type { border-bottom: 0; }
+        .type-icon {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px;
+        }
+        .fat-type.visceral .type-icon {
+            background: #ff5c00; color: #fff;
+        }
+        .fat-type.subcutaneous .type-icon {
+            background: #333; color: #999;
+        }
+        .type-info small {
+            display: block;
+            color: #999;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .type-info h4 {
+            font-size: 17px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .type-info p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .type-tag {
+            background: #ff5c00;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            border-radius: 30px;
+        }
+        .fat-type.subcutaneous .type-tag {
+            background: #333;
+            color: #999;
+        }
+
+        .map-footer {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #262626;
+            margin-top: 25px;
+            color: #ff5c00;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* ---------- RISK SECTION ---------- */
+        .risk-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .risk-header {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 60px;
+        }
+        .risk-section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .risk-section h2 span { color: #ff5c00; display: block; }
+        .risk-header p {
+            color: #999;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .risk-card {
+            background: #151515;
+            border: 1px solid #262626;
+            padding: 30px 25px;
+            border-radius: 6px;
+            height: 100%;
+            transition: 0.4s;
+            position: relative;
+        }
+        .risk-card:hover {
+            border-color: #ff5c00;
+            transform: translateY(-8px);
+        }
+        .risk-no {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 32px;
+            font-weight: 900;
+            color: #262626;
+            line-height: 1;
+        }
+        .risk-card i {
+            color: #ff5c00;
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .risk-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .risk-card p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .card-line {
+            display: block;
+            width: 40px; height: 3px;
+            background: #ff5c00;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .risk-card:hover .card-line { width: 80px; }
+
+        /* ---------- MYTH SECTION ---------- */
+        .myth-section {
+            padding: 100px 0;
+            background: #f7f7f7;
+        }
+        .myth-section h2 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .myth-section h2 span { color: #ff5c00; display: block; }
+        .myth-section p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .myth-counter {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 30px;
+        }
+        .myth-counter span {
+            color: #ff5c00;
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .myth-counter small {
+            color: #999;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .myth-box {
+            background: #fff;
+            border-radius: 6px;
+            padding: 40px;
+            border-left: 4px solid #ff5c00;
+            transition: 0.4s;
+        }
+        .myth-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .myth-label {
+            background: #ff5c00;
+            color: #fff;
+            padding: 5px 14px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            border-radius: 30px;
+        }
+        .myth-top i {
+            color: #ff5c00;
+            font-size: 24px;
+        }
+        .myth-box h3 {
+            font-size: 24px;
+            font-weight: 900;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+        }
+        .fact-answer {
+            background: #f7f7f7;
+            border-radius: 4px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .fact-answer span {
+            display: inline-block;
+            color: #22c55e;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .fact-answer p {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .myth-btn {
+            background: #0a0a0a;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+        }
+        .myth-btn:hover { background: #ff5c00; gap: 18px; }
+
+        /* ---------- SIGNALS ---------- */
+        .signals-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .signals-section h2 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .signals-section h2 span { color: #ff5c00; display: block; }
+        .signals-section p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.85;
+            margin-bottom: 20px;
+        }
+
+        .signal-alert {
+            background: #fff4ec;
+            border-left: 4px solid #ff5c00;
+            padding: 20px 25px;
+            border-radius: 4px;
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .signal-alert i {
+            color: #ff5c00;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .signal-alert p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .signal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .signal-row {
+            display: grid;
+            grid-template-columns: 50px 1fr 50px;
+            gap: 20px;
+            align-items: center;
+            background: #f7f7f7;
+            padding: 22px 25px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .signal-row:hover {
+            background: #0a0a0a;
+            color: #fff;
+            transform: translateX(8px);
+        }
+        .signal-row > span {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ff5c00;
+        }
+        .signal-row strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .signal-row p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .signal-row:hover p { color: #999; }
+        .signal-row i {
+            color: #ff5c00;
+            font-size: 26px;
+            text-align: center;
+        }
+
+        /* ---------- HABITS ---------- */
+        .habits-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .habit-intro {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 60px;
+        }
+        .habits-section h2 {
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+        .habits-section h2 span { color: #ff5c00; display: block; }
+        .habit-intro > p {
+            color: #999;
+            font-size: 15px;
+            line-height: 1.85;
+        }
+
+        .habit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        .habit-card {
+            background: #151515;
+            border: 1px solid #262626;
+            padding: 35px 28px;
+            border-radius: 6px;
+            transition: 0.4s;
+            position: relative;
+        }
+        .habit-card:hover {
+            border-color: #ff5c00;
+            transform: translateY(-8px);
+        }
+        .habit-icon {
+            width: 55px; height: 55px;
+            background: #fff4ec;
+            color: #ff5c00;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+        .habit-card > span {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 32px;
+            font-weight: 900;
+            color: #262626;
+            line-height: 1;
+        }
+        .habit-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .habit-card p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ---------- FINAL CTA ---------- */
+        .final-section {
+            position: relative;
+            padding: 120px 0;
+            background:
+                linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+        }
+        .final-content { max-width: 720px; margin: 0 auto; padding: 0 25px; }
+
+        .final-label {
+            display: block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+        .final-section h2 {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 0.95;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+        .final-section h2 span { color: #ff5c00; }
+        .final-section p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 560px;
+            margin: 0 auto 40px;
+        }
+        .final-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* ---------- FOOTER (standard FitLife) ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .vf-hero > .container > div { grid-template-columns: 1fr; gap: 40px; }
+            .vf-hero h1 { font-size: 52px; }
+            .body-orbit { height: 380px; }
+            .orbit-one { width: 240px; height: 240px; }
+            .orbit-two { width: 320px; height: 320px; }
+            .organ-core { width: 140px; height: 140px; }
+            .fact-item { border-right: 0; border-bottom: 1px solid #e5e5e5; }
+            .fact-item:last-child { border-bottom: 0; }
+            .inside-section h2,
+            .myth-section h2,
+            .signals-section h2 { font-size: 30px; }
+            .risk-header,
+            .habit-intro { grid-template-columns: 1fr; gap: 25px; }
+            .risk-section h2,
+            .habits-section h2 { font-size: 32px; }
+            .habit-grid { grid-template-columns: 1fr 1fr; }
+            .fat-type { grid-template-columns: 1fr; gap: 15px; }
+            .type-tag { justify-self: start; }
+            .signal-row { grid-template-columns: 40px 1fr; gap: 15px; }
+            .signal-row i { display: none; }
+            .final-section h2 { font-size: 40px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .vf-hero h1 { font-size: 34px; }
+            .hero-actions { flex-direction: column; align-items: stretch; }
+            .hero-actions > * { justify-content: center; text-align: center; }
+            .habit-grid { grid-template-columns: 1fr; }
+            .final-section h2 { font-size: 28px; }
+            .myth-box { padding: 25px; }
+            .myth-box h3 { font-size: 18px; }
+            .myth-counter span { font-size: 42px; }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+               <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+<section class="vf-hero">
+    <div class="hero-grid"></div>
+
+    <div class="container">
+        <div>
+
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span></span>
+                    METABOLIC HEALTH / 01
+                </div>
+
+                <h1>
+                    THE FAT
+                    <span>YOU CAN'T SEE.</span>
+                </h1>
+
+                <p class="hero-intro">
+                    Visceral fat sits deeper inside the abdomen,
+                    around internal organs. Understanding it is
+                    less about appearance — and more about
+                    understanding your health.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#inside" class="primary-btn">
+                        Explore the science
+                        <i class="bi bi-arrow-down"></i>
+                    </a>
+
+                    <span class="hero-note">
+                        <i class="bi bi-info-circle"></i>
+                        Educational guide
+                    </span>
+                </div>
+            </div>
+
+            <div class="body-orbit">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="organ-core">
+                    <div class="organ-glow"></div>
+                    <span class="core-label">
+                        VISCERAL<br>FAT
+                    </span>
+                </div>
+
+                <div class="orbit-tag tag-one">
+                    <i class="bi bi-activity"></i>
+                    METABOLIC
+                </div>
+                <div class="orbit-tag tag-two">
+                    <i class="bi bi-heart-pulse"></i>
+                    CARDIO
+                </div>
+                <div class="orbit-tag tag-three">
+                    <i class="bi bi-droplet-half"></i>
+                    GLUCOSE
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FACT STRIP ================= -->
+<section class="fact-strip">
+    <div class="container">
+        <div class="row g-0">
+
+            <div class="col-lg-4 fact-item">
+                <span class="fact-number">01</span>
+                <div>
+                    <small>LOCATION</small>
+                    <h5>Deep inside the abdomen</h5>
+                </div>
+            </div>
+
+            <div class="col-lg-4 fact-item">
+                <span class="fact-number">02</span>
+                <div>
+                    <small>NOT THE SAME AS</small>
+                    <h5>Fat directly under the skin</h5>
+                </div>
+            </div>
+
+            <div class="col-lg-4 fact-item">
+                <span class="fact-number">03</span>
+                <div>
+                    <small>WHY IT MATTERS</small>
+                    <h5>It is linked with metabolic health</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= INSIDE ================= -->
+<section class="inside-section" id="inside">
+    <div class="container">
+
+        <div class="section-kicker">02 / UNDER THE SURFACE</div>
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+                <h2>
+                    NOT ALL BODY FAT
+                    <span>BEHAVES THE SAME.</span>
+                </h2>
+
+                <p class="large-text">
+                    Visceral fat is fat stored deeper inside the
+                    abdominal cavity, surrounding organs. Unlike
+                    the fat stored just beneath the skin, it is
+                    metabolically active and can influence
+                    processes involved in inflammation and
+                    metabolism.
+                </p>
+
+                <p>
+                    That is why the conversation around visceral
+                    fat is really a conversation about
+                    <strong>metabolic health</strong> — not simply
+                    about how someone looks.
+                </p>
+
+                <div class="science-note">
+                    <i class="bi bi-beaker"></i>
+                    <div>
+                        <strong>SCIENCE NOTE</strong>
+                        <p>
+                            Research links higher visceral fat
+                            levels with cardiometabolic risks,
+                            including insulin resistance,
+                            type 2 diabetes and cardiovascular
+                            disease.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="fat-comparison">
+                    <div class="comparison-heading">
+                        <span>BODY FAT MAP</span>
+                        <span>02 TYPES</span>
+                    </div>
+
+                    <div class="fat-type visceral">
+                        <div class="type-icon"><i class="bi bi-circle-fill"></i></div>
+                        <div class="type-info">
+                            <small>TYPE 01</small>
+                            <h4>Visceral Fat</h4>
+                            <p>Stored deeper inside the abdomen, around internal organs.</p>
+                        </div>
+                        <span class="type-tag">DEEP</span>
+                    </div>
+
+                    <div class="fat-type subcutaneous">
+                        <div class="type-icon"><i class="bi bi-circle-fill"></i></div>
+                        <div class="type-info">
+                            <small>TYPE 02</small>
+                            <h4>Subcutaneous Fat</h4>
+                            <p>Stored beneath the skin and forms much of the visible body fat.</p>
+                        </div>
+                        <span class="type-tag">UNDER SKIN</span>
+                    </div>
+
+                    <div class="map-footer">
+                        <i class="bi bi-arrow-up-right"></i>
+                        LOCATION MATTERS
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= RISK ================= -->
+<section class="risk-section">
+    <div class="container">
+
+        <div class="risk-header">
+            <div>
+                <div class="section-kicker light">03 / WHY IT MATTERS</div>
+                <h2>THE HIDDEN <span>CONNECTION.</span></h2>
+            </div>
+            <p>
+                Higher visceral fat is associated with several
+                cardiometabolic risk factors. It is one piece
+                of a much bigger health picture.
+            </p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="risk-card">
+                    <span class="risk-no">01</span>
+                    <i class="bi bi-droplet-half"></i>
+                    <h4>Blood Glucose</h4>
+                    <p>Visceral fat is associated with insulin resistance and increased type 2 diabetes risk.</p>
+                    <span class="card-line"></span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="risk-card">
+                    <span class="risk-no">02</span>
+                    <i class="bi bi-heart-pulse"></i>
+                    <h4>Heart Health</h4>
+                    <p>Higher visceral fat is associated with cardiovascular risk.</p>
+                    <span class="card-line"></span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="risk-card">
+                    <span class="risk-no">03</span>
+                    <i class="bi bi-fire"></i>
+                    <h4>Inflammation</h4>
+                    <p>Excess visceral fat can be linked with inflammatory processes in the body.</p>
+                    <span class="card-line"></span>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="risk-card">
+                    <span class="risk-no">04</span>
+                    <i class="bi bi-activity"></i>
+                    <h4>Metabolism</h4>
+                    <p>Visceral fat is metabolically active and interacts with systems that regulate energy and glucose.</p>
+                    <span class="card-line"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= MYTH ================= -->
+<section class="myth-section">
+    <div class="container">
+
+        <div class="section-kicker">04 / MYTH CHECK</div>
+
+        <div class="row align-items-start g-5">
+
+            <div class="col-lg-5">
+                <h2>LET'S CLEAR <span>THE NOISE.</span></h2>
+
+                <p>
+                    Visceral fat is often surrounded by
+                    oversimplified fitness claims. Here are
+                    a few important distinctions.
+                </p>
+
+                <div class="myth-counter">
+                    <span id="mythNumber">01</span>
+                    <small>/ 03</small>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="myth-box">
+                    <div class="myth-top">
+                        <span class="myth-label">MYTH</span>
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <h3 id="mythTitle">
+                        You can target visceral fat with one
+                        specific exercise.
+                    </h3>
+
+                    <div class="fact-answer">
+                        <span>FACT</span>
+                        <p id="mythText">
+                            There is no single exercise that
+                            selectively removes visceral fat.
+                            Overall physical activity and
+                            healthy lifestyle habits matter
+                            more than one "magic" movement.
+                        </p>
+                    </div>
+
+                    <button type="button" id="nextMyth" class="myth-btn">
+                        Next myth
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= SIGNALS ================= -->
+<section class="signals-section">
+    <div class="container">
+
+        <div class="section-kicker">05 / KNOW YOUR SIGNALS</div>
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+                <h2>YOUR BODY <span>LEAVES CLUES.</span></h2>
+
+                <p>
+                    You cannot reliably tell how much visceral
+                    fat someone has simply by looking at them.
+                    Health professionals use measurements and
+                    clinical information to assess risk.
+                </p>
+
+                <div class="signal-alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <p>
+                        Waist circumference can be one useful
+                        risk marker, but it does not diagnose
+                        visceral fat or diabetes by itself.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="signal-list">
+
+                    <div class="signal-row">
+                        <span>01</span>
+                        <div>
+                            <strong>Waist measurement</strong>
+                            <p>Can help estimate abdominal-fat related health risk.</p>
+                        </div>
+                        <i class="bi bi-rulers"></i>
+                    </div>
+
+                    <div class="signal-row">
+                        <span>02</span>
+                        <div>
+                            <strong>Blood glucose</strong>
+                            <p>Blood tests can help identify prediabetes or diabetes.</p>
+                        </div>
+                        <i class="bi bi-droplet"></i>
+                    </div>
+
+                    <div class="signal-row">
+                        <span>03</span>
+                        <div>
+                            <strong>Blood pressure</strong>
+                            <p>A routine health measurement relevant to cardiometabolic risk.</p>
+                        </div>
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+
+                    <div class="signal-row">
+                        <span>04</span>
+                        <div>
+                            <strong>Medical assessment</strong>
+                            <p>A healthcare professional can interpret your measurements together.</p>
+                        </div>
+                        <i class="bi bi-person-check"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= HABITS ================= -->
+<section class="habits-section">
+    <div class="container">
+
+        <div class="habit-intro">
+            <div>
+                <div class="section-kicker light">06 / THE BIGGER PICTURE</div>
+                <h2>DON'T CHASE A <span>NUMBER.</span></h2>
+            </div>
+            <p>
+                Long-term metabolic health is built from
+                consistent habits — not extreme shortcuts.
+            </p>
+        </div>
+
+        <div class="habit-grid">
+
+            <div class="habit-card">
+                <div class="habit-icon"><i class="bi bi-person-walking"></i></div>
+                <span>01</span>
+                <h4>Move Regularly</h4>
+                <p>Regular physical activity supports overall metabolic and cardiovascular health.</p>
+            </div>
+
+            <div class="habit-card">
+                <div class="habit-icon"><i class="bi bi-egg-fried"></i></div>
+                <span>02</span>
+                <h4>Eat Consistently Well</h4>
+                <p>Build meals around a balanced variety of nutritious foods rather than extreme diets.</p>
+            </div>
+
+            <div class="habit-card">
+                <div class="habit-icon"><i class="bi bi-moon-stars"></i></div>
+                <span>03</span>
+                <h4>Protect Your Sleep</h4>
+                <p>Healthy sleep is an important part of overall wellbeing and daily recovery.</p>
+            </div>
+
+            <div class="habit-card">
+                <div class="habit-icon"><i class="bi bi-heart"></i></div>
+                <span>04</span>
+                <h4>Think Health First</h4>
+                <p>Focus on energy, strength, fitness and wellbeing rather than appearance alone.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-section">
+    <div class="final-overlay"></div>
+
+    <div class="container">
+        <div class="final-content">
+
+            <span class="final-label">FITLIFE / HEALTH INTELLIGENCE</span>
+
+            <h2>
+                KNOW WHAT'S<br>
+                <span>HAPPENING INSIDE.</span>
+            </h2>
+
+            <p>
+                Better fitness starts with better understanding.
+                Learn, move, recover and build habits that
+                support your long-term health.
+            </p>
+
+            <div class="final-buttons">
+                <a href="classes.html" class="primary-btn">
+                    Explore Classes
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+                <a href="blog.html" class="outline-btn">Back to Blog</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonilas</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+            
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+       <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+<!-- PAGE-SPECIFIC SCRIPT (Myth switcher) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const myths = [
+        {
+            title: "You can target visceral fat with one specific exercise.",
+            text: "There is no single exercise that selectively removes visceral fat. Overall physical activity and healthy lifestyle habits matter more than one 'magic' movement."
+        },
+        {
+            title: "You can always tell visceral fat levels just by looking at someone.",
+            text: "Appearance does not reliably indicate how much visceral fat a person has. Clinical measurements and professional assessment provide a clearer picture."
+        },
+        {
+            title: "Skipping meals will reduce visceral fat faster.",
+            text: "Extreme restriction is not a sustainable approach. Consistent balanced meals, regular activity, and adequate recovery support long-term metabolic health."
+        }
+    ];
+
+    const btn = document.getElementById("nextMyth");
+    const num = document.getElementById("mythNumber");
+    const title = document.getElementById("mythTitle");
+    const text = document.getElementById("mythText");
+    let idx = 0;
+
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+        idx = (idx + 1) % myths.length;
+        num.textContent = String(idx + 1).padStart(2, "0");
+        title.textContent = myths[idx].title;
+        text.textContent = myths[idx].text;
+    });
+
+});
+</script>
+
+</body>
+
+</html>

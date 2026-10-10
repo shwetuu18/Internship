@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife | Membership</title>
+    <!-- Favicon — Dumbbell -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 640'><rect width='640' height='640' rx='140' fill='%23ff5c00'/><path fill='white' d='M112 288c0-17.7 14.3-32 32-32h16v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h160v-64c0-17.7 14.3-32 32-32h16c17.7 0 32 14.3 32 32v64h16c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32h-16v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64H240v64c0 17.7-14.3 32-32 32h-16c-17.7 0-32-14.3-32-32v-64h-16c-17.7 0-32-14.3-32-32v-64z'/></svg>">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- =========================================================
+         PAGE CSS
+    ========================================================== -->
+    <style>
+
+        /* ---------- RESET ---------- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ---------- NAVBAR ---------- */
+        .navbar {
+            background: #0a0a0a !important;
+            padding: 14px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 800; font-size: 22px; letter-spacing: 1px;
+        }
+        .logo-orange { color: #ff5c00; }
+
+        .navbar-nav .nav-link {
+            color: #e0e0e0 !important;
+            font-size: 14px; font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 14px !important;
+            transition: 0.3s;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { color: #ff5c00 !important; }
+
+        .dropdown-menu {
+            background: #111; border: 1px solid #222; border-radius: 0;
+        }
+        .dropdown-item {
+            color: #ddd; font-size: 14px;
+            padding: 10px 18px; transition: 0.3s;
+        }
+        .dropdown-item:hover { background: #ff5c00; color: #fff; }
+
+        .navbar-toggler {
+            border: none; outline: none; box-shadow: none !important;
+        }
+
+        /* ---------- HERO ---------- */
+        .membership-hero {
+            position: relative;
+            padding: 140px 0 180px;
+            background:
+                linear-gradient(90deg, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80')
+                center/cover no-repeat;
+            color: #fff;
+            overflow: hidden;
+        }
+        .membership-hero .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+            pointer-events: none;
+        }
+        .membership-hero .container { position: relative; z-index: 2; }
+
+        .membership-hero h5 {
+            display: inline-block;
+            color: #ff5c00;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .membership-hero h1 {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 25px;
+        }
+        .membership-hero p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.85;
+            max-width: 620px;
+            margin-bottom: 30px;
+        }
+        .btn-warning {
+            background: #ff5c00 !important;
+            border: 2px solid #ff5c00 !important;
+            color: #fff !important;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 13px;
+            padding: 16px 40px;
+            border-radius: 0;
+            transition: 0.3s;
+        }
+        .btn-warning:hover {
+            background: transparent !important;
+            color: #ff5c00 !important;
+        }
+
+        .hero-shape {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            z-index: 1;
+        }
+        .hero-shape svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* ---------- PLANS SECTION ---------- */
+        #plans {
+            background: #0a0a0a !important;
+        }
+        #plans h5 {
+            color: #ff5c00 !important;
+            font-size: 12px !important;
+            letter-spacing: 3px;
+        }
+        #plans h2 {
+            font-size: 48px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase;
+            margin-bottom: 15px !important;
+        }
+        #plans p.text-light { color: #999 !important; }
+
+        .pricing-card {
+            background: #151515;
+            border: 1px solid #262626;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.4s;
+            position: relative;
+            height: 100%;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff5c00;
+            box-shadow: 0 25px 55px rgba(255,92,0,0.15);
+        }
+        .pricing-card .card-header {
+            padding: 35px 30px;
+            border-bottom: 0;
+            background: transparent;
+            text-align: center;
+        }
+        .pricing-card .card-header h3 {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .pricing-card .card-header h2 {
+            font-size: 44px;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+        .pricing-card .card-header h2 span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            letter-spacing: 0;
+        }
+        .basic-header { border-bottom: 3px solid #3b82f6 !important; }
+        .premium-header { border-bottom: 3px solid #ff5c00 !important; }
+        .elite-header { border-bottom: 3px solid #fbbf24 !important; }
+
+        .premium-card {
+            border-color: #ff5c00;
+            transform: scale(1.03);
+        }
+        .premium-card .popular {
+            position: absolute;
+            top: 20px; right: -35px;
+            background: #ff5c00;
+            color: #fff;
+            padding: 8px 45px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            transform: rotate(45deg);
+        }
+
+        .pricing-card .card-body {
+            padding: 30px 35px 40px;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+        }
+        .pricing-card ul li {
+            color: #ccc;
+            font-size: 14px;
+            padding: 11px 0;
+            border-bottom: 1px solid #262626;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .pricing-card ul li:last-child { border-bottom: 0; }
+        .pricing-card ul li i {
+            color: #ff5c00;
+            font-size: 16px;
+        }
+
+        .join-btn {
+            background: #ff5c00;
+            color: #fff;
+            border: 2px solid #ff5c00;
+            padding: 14px 30px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: 0.3s;
+        }
+        .join-btn:hover {
+            background: transparent;
+            color: #ff5c00;
+        }
+
+        /* ---------- MODALS ---------- */
+        .membership-modal {
+            background: #0e0e0e;
+            color: #fff;
+            border: 1px solid #1e1e1e;
+            border-radius: 0;
+        }
+        .membership-modal .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .membership-modal .modal-header h3 {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .membership-modal .modal-header p {
+            color: #999;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+        .membership-modal .modal-body { padding: 30px; }
+        .membership-modal label {
+            color: #ccc;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .membership-modal .form-control,
+        .membership-modal .form-select {
+            background: #161616;
+            border: 1px solid #262626;
+            color: #fff;
+            padding: 12px 14px;
+            font-size: 14px;
+            border-radius: 0;
+        }
+        .membership-modal .form-control:focus,
+        .membership-modal .form-select:focus {
+            background: #161616;
+            border-color: #ff5c00;
+            color: #fff;
+            box-shadow: none;
+        }
+        .membership-modal .form-control::placeholder { color: #666; }
+        .membership-modal .form-select option { background: #161616; color: #fff; }
+
+        .membership-modal .alert-success {
+            background: rgba(34,197,94,0.1);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            border-radius: 0;
+            padding: 25px;
+        }
+        .membership-modal .alert-success i {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .membership-modal .alert-success strong {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .membership-modal .alert-success p {
+            color: #86efac;
+            font-size: 13px;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            background: #0a0a0a;
+            color: #bbb;
+            padding: 70px 0 0;
+            border-top: 1px solid #1c1c1c;
+        }
+        .footer-container {
+            max-width: 1300px; margin: 0 auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+        .footer-box h2,
+        .footer-box h3,
+        .footer-box h4 {
+            color: #fff; margin-bottom: 18px;
+            font-weight: 700; letter-spacing: 0.5px;
+        }
+        .footer-box h4 { font-size: 15px; margin-top: 20px; }
+        .footer-logo { font-size: 26px; }
+        .footer-logo i { color: #ff5c00; }
+
+        .footer-box p {
+            font-size: 14px; line-height: 1.8;
+            margin-bottom: 12px; color: #999;
+        }
+        .footer-box p i { color: #ff5c00; margin-right: 8px; }
+
+        .footer-box a {
+            display: block;
+            color: #999; font-size: 14px;
+            padding: 5px 0; transition: 0.3s;
+        }
+        .footer-box a:hover { color: #ff5c00; padding-left: 6px; }
+
+        .newsletter { margin-top: 20px; }
+        .newsletter form { display: flex; margin-top: 10px; }
+        .newsletter input {
+            flex: 1; padding: 12px 14px;
+            background: #151515;
+            border: 1px solid #222;
+            color: #fff; font-size: 13px;
+            outline: none;
+        }
+        .newsletter button {
+            background: #ff5c00; color: #fff;
+            border: none; padding: 0 20px;
+            font-size: 13px; font-weight: 700;
+            letter-spacing: 1px; cursor: pointer;
+            transition: 0.3s;
+        }
+        .newsletter button:hover { background: #e04f00; }
+
+        .footer iframe {
+            width: 100%; height: 160px;
+            border: 0;
+            filter: grayscale(1) invert(1);
+            margin-top: 10px;
+        }
+        .social { margin-top: 18px; display: flex; gap: 12px; }
+        .social a {
+            display: inline-flex; align-items: center;
+            justify-content: center;
+            width: 38px; height: 38px;
+            background: #151515; color: #fff;
+            border-radius: 50%; transition: 0.3s;
+        }
+        .social a:hover { background: #ff5c00; padding: 0; }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid #1c1c1c;
+            margin-top: 50px;
+            font-size: 13px; color: #777;
+        }
+        .footer-bottom a { color: #bbb; margin: 0 6px; }
+        .footer-bottom a:hover { color: #ff5c00; }
+
+        /* ---------- BACK TO TOP ---------- */
+        #topBtn {
+            position: fixed;
+            bottom: 25px; right: 25px;
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: #ff5c00; color: #fff;
+            border: none; font-size: 18px;
+            cursor: pointer; display: none;
+            z-index: 999;
+            box-shadow: 0 6px 18px rgba(255,92,0,0.35);
+            transition: 0.3s;
+        }
+        #topBtn:hover {
+            background: #e04f00;
+            transform: translateY(-4px);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .membership-hero h1 { font-size: 44px; }
+            #plans h2 { font-size: 32px !important; }
+            .premium-card { transform: none; }
+            .pricing-card .card-header h2 { font-size: 34px; }
+            .navbar-nav { text-align: center; padding-top: 15px; }
+            .footer-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 575px) {
+            .membership-hero h1 { font-size: 32px; }
+            .membership-hero { padding: 100px 0 140px; }
+            #plans h2 { font-size: 26px !important; }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <span class="logo-orange"><i class="fa-solid fa-dumbbell"></i>&nbsp;FIT</span>LIFE
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item"><a class="nav-link" href="membership.html">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="workout.html">Workouts</a></li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="nutrition.html">Nutrition</a></li>
+                        <li><a class="dropdown-item" href="bodyanalysis.html">Inbody Analysis</a></li>
+                        <li><a class="dropdown-item" href="relaxation.html">Relaxation</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonilas.html">Testimonials</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+               <li class="nav-item"><a class="nav-link" href="store.html">Store</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+<section class="membership-hero">
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+                <h5>JOIN FITLIFE 🏋️</h5>
+
+                <h1>MEMBERSHIP</h1>
+
+                <p>
+                    Become stronger, healthier and more confident with
+                    our premium fitness membership. Enjoy expert
+                    coaching, modern equipment and personalized training
+                    programs.
+                </p>
+
+                <div class="mt-4">
+                    <a href="#plans" class="btn btn-warning btn-lg">Join Today</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-shape">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+            <path fill="#0a0a0a" d="M0,96L240,64C480,32,960,0,1200,16L1440,32L1440,140L0,140Z"></path>
+        </svg>
+    </div>
+
+</section>
+
+
+<!-- ================= MEMBERSHIP PLANS ================= -->
+<section id="plans" class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h5 class="fw-bold">MEMBERSHIP PLANS</h5>
+            <h2 class="text-white">Choose Your Perfect Plan</h2>
+            <p class="text-light">Flexible plans designed for every fitness goal.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- BASIC -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card pricing-card">
+                    <div class="card-header basic-header">
+                        <h3>Basic</h3>
+                        <h2>₹999<span>/Month</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Unlimited Gym Access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cardio Area</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Locker Facility</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Free Wi-Fi</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Fitness Assessment</li>
+                        </ul>
+                        <a href="#" class="btn join-btn w-100"
+                           data-bs-toggle="modal"
+                           data-bs-target="#basicModal">
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card pricing-card premium-card">
+                    <div class="popular">MOST POPULAR</div>
+                    <div class="card-header premium-header">
+                        <h3>Premium</h3>
+                        <h2>₹1999<span>/Month</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Unlimited Gym Access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Personal Trainer</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Customized Diet Plan</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Group Classes</li>
+                            <li><i class="bi bi-check-circle-fill"></i> InBody Analysis</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Steam Bath</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Supplement Discount</li>
+                        </ul>
+                        <a href="#" class="btn join-btn w-100"
+                           data-bs-toggle="modal"
+                           data-bs-target="#premiumModal">
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ELITE -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card pricing-card">
+                    <div class="card-header elite-header">
+                        <h3>Elite</h3>
+                        <h2>₹2999<span>/Month</span></h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Premium</li>
+                            <li><i class="bi bi-check-circle-fill"></i> One-to-One Coaching</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Weekly Progress Reports</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Custom Workout Plan</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Nutrition Consultation</li>
+                            <li><i class="bi bi-check-circle-fill"></i> VIP Member Support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Priority Booking</li>
+                        </ul>
+                        <a href="#" class="btn join-btn w-100"
+                           data-bs-toggle="modal"
+                           data-bs-target="#eliteModal">
+                            Join Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= BASIC MODAL ================= -->
+<div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content membership-modal">
+
+            <div class="modal-header basic-header">
+                <div>
+                    <h3 class="mb-1">Basic Membership</h3>
+                    <p class="mb-0">₹999 / Month</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="basicSuccess" class="alert alert-success text-center" style="display:none;">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <strong>Membership Successfully Registered!</strong>
+                    <p class="mb-0">Welcome to FitLife Basic Membership.</p>
+                </div>
+
+                <form id="basicForm">
+                    <input type="hidden" value="Basic Membership" name="membership">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Age</label>
+                        <input type="number" class="form-control" name="age" placeholder="Enter your age" min="13" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fitness Goal</label>
+                        <select class="form-select" name="goal" required>
+                            <option value="">Select your goal</option>
+                            <option>Weight Management</option>
+                            <option>Muscle Building</option>
+                            <option>General Fitness</option>
+                            <option>Improve Stamina</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Preferred Start Date</label>
+                        <input type="date" class="form-control" name="date" required>
+                    </div>
+
+                    <button type="submit" class="btn join-btn w-100">Confirm Basic Membership</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= PREMIUM MODAL ================= -->
+<div class="modal fade" id="premiumModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content membership-modal">
+
+            <div class="modal-header premium-header">
+                <div>
+                    <h3 class="mb-1">Premium Membership</h3>
+                    <p class="mb-0">₹1999 / Month</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="premiumSuccess" class="alert alert-success text-center" style="display:none;">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <strong>Membership Successfully Registered!</strong>
+                    <p class="mb-0">Welcome to FitLife Premium Membership.</p>
+                </div>
+
+                <form id="premiumForm">
+                    <input type="hidden" value="Premium Membership" name="membership">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-control" name="age" placeholder="Age" min="13" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Gender</label>
+                            <select class="form-select" name="gender" required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fitness Goal</label>
+                        <select class="form-select" name="goal" required>
+                            <option value="">Select your goal</option>
+                            <option>Muscle Building</option>
+                            <option>Weight Management</option>
+                            <option>Strength Training</option>
+                            <option>Improve Fitness</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Do you want a Customized Diet Plan?</label>
+                        <select class="form-select" name="diet" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Preferred Start Date</label>
+                        <input type="date" class="form-control" name="date" required>
+                    </div>
+
+                    <button type="submit" class="btn join-btn w-100">Confirm Premium Membership</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= ELITE MODAL ================= -->
+<div class="modal fade" id="eliteModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content membership-modal">
+
+            <div class="modal-header elite-header">
+                <div>
+                    <h3 class="mb-1">Elite Membership</h3>
+                    <p class="mb-0">₹2999 / Month</p>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <div id="eliteSuccess" class="alert alert-success text-center" style="display:none;">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <strong>Membership Successfully Registered!</strong>
+                    <p class="mb-0">Welcome to FitLife Elite Membership.</p>
+                </div>
+
+                <form id="eliteForm">
+                    <input type="hidden" value="Elite Membership" name="membership">
+
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="phone" placeholder="Enter phone number" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" class="form-control" name="age" placeholder="Age" min="13" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Gender</label>
+                            <select class="form-select" name="gender" required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fitness Goal</label>
+                        <select class="form-select" name="goal" required>
+                            <option value="">Select your goal</option>
+                            <option>Muscle Building</option>
+                            <option>Weight Management</option>
+                            <option>Strength & Performance</option>
+                            <option>Body Fitness</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Personal Coaching Required?</label>
+                        <select class="form-select" name="coaching" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nutrition Consultation Required?</label>
+                        <select class="form-select" name="nutrition" required>
+                            <option value="">Select</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Preferred Start Date</label>
+                        <input type="date" class="form-control" name="date" required>
+                    </div>
+
+                    <button type="submit" class="btn join-btn w-100">Confirm Elite Membership</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2 class="footer-logo"><i class="fa-solid fa-dumbbell"></i> FitLife</h2>
+            <p>Transforming lives through fitness, nutrition, and expert coaching. Join FitLife and become the strongest version of yourself.</p>
+
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Get weekly workout & nutrition tips.</p>
+                <form id="newsletterForm">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p><i class="fa-solid fa-location-dot"></i>
+                Government Industrial Estate, 105 ABC, Hindustan Naka,<br>
+                Charkop Industrial Estate,<br>
+                Kandivali West, Mumbai, Maharashtra 400067
+            </p>
+            <p><i class="fa-solid fa-phone"></i> +91 9309061530</p>
+            <p><i class="fa-solid fa-envelope"></i> info@fitlife.com</p>
+
+            <h4>Opening Hours</h4>
+            <p>Mon - Sun</p>
+            <p>5:00 AM - 11:45 PM</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="membership.html">Join Us</a>
+            <a href="about.html">About</a>
+            <a href="workout.html">Workout</a>
+            <a href="service.html">Service</a>
+            <a href="classes.html">Classes</a>
+            <a href="testimonilas.html">Testimonilas</a>
+            <a href="blog.html">Blog</a>
+            <a href="store.html">Store</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Find Us</h3>
+
+            <iframe src="https://www.google.com/maps?q=Bilalpada%20Station%20Road%20Maharashtra&output=embed"
+                    loading="lazy"></iframe>
+
+            
+            <div class="social">
+                <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://in.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+            © 2026 FitLife. All Rights Reserved. |
+            <a href="membership.html">Privacy Policy</a> |
+            <a href="service.html">Terms of Service</a>  |
+            Design by Shweta
+        </p>
+    </div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+<button id="topBtn"><i class="bi bi-arrow-up"></i></button>
+
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+
+<!-- PAGE-SPECIFIC SCRIPT (Membership forms) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const forms = [
+        { formId: "basicForm",   successId: "basicSuccess"   },
+        { formId: "premiumForm", successId: "premiumSuccess" },
+        { formId: "eliteForm",   successId: "eliteSuccess"   }
+    ];
+
+    forms.forEach(({ formId, successId }) => {
+        const form = document.getElementById(formId);
+        const success = document.getElementById(successId);
+        if (!form || !success) return;
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            form.style.display = "none";
+            success.style.display = "block";
+
+            // Optionally auto-close modal after 3 seconds
+            setTimeout(() => {
+                const modal = form.closest(".modal");
+                if (modal) {
+                    const instance = bootstrap.Modal.getInstance(modal);
+                    if (instance) instance.hide();
+                }
+            }, 3000);
+        });
+    });
+
+});
+</script>
+
+</body>
+
+</html>
